@@ -9,7 +9,7 @@ import javax.persistence.TypedQuery;
 import br.com.usjt.tcc.model.NGO;
 
 public class NGODao {
-//Testando alteração
+
 	private EntityManager entityManager;
 
 	public NGODao(EntityManager entityManager) {
