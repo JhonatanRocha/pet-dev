@@ -49,7 +49,7 @@
 			</div>
 
 			<div class="col-xs-4 col-xs-offset-2">
-				<form action="preCadastro" method="post">
+				<form action="novoUsuario" method="post">
 					<fieldset>
 						<legend>Junte-se a nós</legend>
 

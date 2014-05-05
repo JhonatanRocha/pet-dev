@@ -6,6 +6,8 @@ import javax.persistence.EntityManager;
 import javax.persistence.Query;
 import javax.persistence.TypedQuery;
 
+import org.springframework.stereotype.Repository;
+
 import br.com.usjt.tcc.model.User;
 
 public class UserDao {
