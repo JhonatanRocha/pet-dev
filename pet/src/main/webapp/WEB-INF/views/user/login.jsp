@@ -74,9 +74,32 @@
 							</div>
 
 							<div class="row">
+								<div class="form-button">
+									<div class="col-xs-5">
+										<label> <input type="checkbox" name="isOwner"
+											value="true">Dono de animal
+										</label>
+									</div>
+
+									<div class="col-xs-3">
+										<label> <input type="checkbox" name="isOfNGO"
+											value="true">Ong
+										</label>
+									</div>
+
+									<div class="col-xs-4">
+										<label> <input type="checkbox" name="isOfPetShop"
+											value="true">Pet Shop
+										</label>
+									</div>
+								</div>
+							</div>
+
+							<div class="row">
 								<div class="col-xs-4">
 									<div class="form-group">
-										<input type="submit" class="form-control form-button btn btn-success"
+										<input type="submit"
+											class="form-control form-button btn btn-success"
 											value="Cadastrar">
 									</div>
 								</div>

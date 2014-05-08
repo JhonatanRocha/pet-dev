@@ -12,7 +12,7 @@
 
 	<div class="container">
 		<nav class="navbar navbar-inverse" role="navigation"> <a
-			class="navbar-brand" href="#">Pet*</a> </nav>
+			class="navbar-brand" href="#">4 Our Lives</a> </nav>
 		<form action="registerUser" method="post">
 
 
@@ -20,23 +20,28 @@
 				<legend>Junte-se a nós</legend>
 
 				<div class="row">
-					<div class="col-xs-6">
+					<div class="col-md-6 col-xs-12">
 						<div class="form-group">
 							<label for="name">Nome</label> <input type="text"
 								class="form-control" id="name" name="name">
 						</div>
 					</div>
+					
+					<div class="col-md-2 col-xs-12">
+						<label for="birth">Data de Nascimento</label>
+						<input type="text" class="form-control" id="birth" name="birth">
+					</div>
 				</div>
 
 				<div class="row">
-					<div class="col-xs-6">
+					<div class="col-md-6 col-xs-12">
 						<div class="form-group">
 							<label for="email">E-mail</label> <input type="text"
 								class="form-control" id="email" name="email" value="${email }">
 						</div>
 					</div>
 
-					<div class="col-xs-6">
+					<div class="col-md-6 col-xs-12">
 						<div class="form-group">
 							<label for="confirmEmail">Confirmar E-mail</label> <input
 								type="text" class="form-control" id="confirmEmail"
@@ -47,7 +52,7 @@
 				</div>
 
 				<div class="row">
-					<div class="col-xs-5">
+					<div class="col-md-5 col-xs-12">
 						<div class="form-group">
 							<label for="password">Senha</label> <input type="password"
 								class="form-control" id="password" name="password"
@@ -55,7 +60,7 @@
 						</div>
 					</div>
 
-					<div class="col-xs-5 col-xs-offset-1">
+					<div class="col-md-5 col-md-offset-1 col-xs-12">
 						<div class="form-group">
 							<label for="confirmPassword">Confirmar Senha</label> <input
 								type="password" class="form-control" id="confirmPassword"
@@ -65,28 +70,28 @@
 				</div>
 
 				<div class="row">
-					<div class="col-xs-2">
+					<div class="col-md-2 col-xs-12">
 						<div class="form-group">
 							<label for="phone">Telefone</label> <input type="text"
 								class="form-control" id="phone" name="phone">
 						</div>
 					</div>
 
-					<div class="col-xs-2 col-xs-offset-	1">
+					<div class="col-md-2 col-md-offset-	1 col-xs-12">
 						<div class="form-group">
-							<label for="celphone">Celular</label> <input type="text"
+							<label for="cellphone">Celular</label> <input type="text"
 								class="form-control" id="celphone" name="celphone">
 						</div>
 					</div>
 
-					<div class="col-xs-2 col-xs-offset-2">
+					<div class="col-md-2 col-md-offset-2 col-xs-12">
 						<div class="form-group">
 							<label for="zipcode">CEP</label> <input type="text"
 								class="form-control" id="zipcode" name="zipcode">
 						</div>
 					</div>
 
-					<div class="col-xs-1">
+					<div class="col-md-1 col-xs-12">
 						<div class="form-group">
 							<label for="state">UF</label> <input type="text"
 								class="form-control" id="state" name="state">
@@ -97,12 +102,12 @@
 
 				<div class="row">
 
-					<div class="col-xs-6">
+					<div class="col-md-6 col-xs-12">
 						<label for="city">Cidade</label> <input type="text"
 							class="form-control" id="city" name="city">
 					</div>
 
-					<div class="col-xs-6">
+					<div class="col-md-6 col-xs-12">
 						<div class="form-group">
 							<label for="street">Endereço</label> <input type="text"
 								id="street" name="street" class="form-control">
@@ -110,7 +115,7 @@
 					</div>
 
 					<div class="row">
-						<div class="col-xs-2">
+						<div class="col-md-2 col-xs-12">
 							<div class="form-group">
 								<input type="submit"
 									class="form-control form-button btn btn-success"
