@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="ISO-8859-1"%>
+	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -11,15 +11,19 @@
 <body>
 
 	<div class="container">
-		<nav class="navbar navbar-inverse" role="navigation">
-		<form class="navbar-form navbar-left" role="search">
-			<div class="form-group">
-				<input type="text" name="login" class="form-control"
-					placeholder="login"> <input type="password" name="password"
-					class="form-control" placeholder="Senha">
-			</div>
-			<button type="submit" class="btn btn-primary">Login</button>
-		</form>
+
+		<nav class="navbar navbar-inverse" role="navigation"> <a
+			class="navbar-brand" href="#">4 Our Lives</a>
+		<div class="pull-right">
+			<form class="navbar-form navbar-left" role="search">
+				<div class="form-group">
+					<input type="text" name="login" class="form-control"
+						placeholder="login"> <input type="password"
+						name="password" class="form-control" placeholder="Senha">
+				</div>
+				<button type="submit" class="btn btn-primary">Login</button>
+			</form>
+		</div>
 		</nav>
 
 
@@ -51,7 +55,7 @@
 			<div class="col-xs-4 col-xs-offset-2">
 				<form action="novoUsuario" method="post">
 					<fieldset>
-						<legend>Junte-se a nós</legend>
+						<legend>Junte-se a nÃ³s</legend>
 
 						<div class="row">
 

@@ -34,7 +34,9 @@ public class UserController {
 	public String registerUser(User user, Address address) {
 		user.setAddress(address);
 		user.setPassword(HashHelper.sha256(user.getPassword()));
-
+		user.setCellphone(user.getCellphone().replaceAll("\\D", ""));  
+		user.setPhone(user.getPhone().replaceAll("\\D", ""));
+		
 		EntityManagerFactory entityManagerFactory = Persistence
 				.createEntityManagerFactory("tcc-mysql");
 		EntityManager entityManager = entityManagerFactory
@@ -48,4 +50,5 @@ public class UserController {
 
 		return "user/login";
 	}
+	
 }

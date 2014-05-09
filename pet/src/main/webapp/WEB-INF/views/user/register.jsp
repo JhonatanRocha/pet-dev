@@ -1,19 +1,30 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<c:import url="../main/main.jsp" />
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Junte-se a nós</title>
+	<c:import url="../main/main.jsp" />
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<title>Junte-se a nós</title>
 </head>
+
+<script> 
+	jQuery(function($){
+		$("#birth").mask("99/99/9999");
+		$("#phone").mask("(99) 9999-9999");
+		$("#cellphone").mask("(99) 99999-9999");
+		$("#zipcode").mask("99999-999");
+	});
+
+</script>
+
 <body>
 
 	<div class="container">
 		<nav class="navbar navbar-inverse" role="navigation"> <a
 			class="navbar-brand" href="#">4 Our Lives</a> </nav>
-		<form action="registerUser" method="post">
+		<form name="register" action="registerUser" method="post">
 
 
 			<fieldset>
@@ -80,7 +91,7 @@
 					<div class="col-md-2 col-md-offset-	1 col-xs-12">
 						<div class="form-group">
 							<label for="cellphone">Celular</label> <input type="text"
-								class="form-control" id="celphone" name="celphone">
+								class="form-control" id="cellphone" name="cellphone">
 						</div>
 					</div>
 
@@ -113,7 +124,7 @@
 								id="street" name="street" class="form-control">
 						</div>
 					</div>
-
+					
 					<div class="row">
 						<div class="col-md-2 col-xs-12">
 							<div class="form-group">
