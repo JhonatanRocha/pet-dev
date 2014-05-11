@@ -2,17 +2,20 @@ package br.com.usjt.tcc.teste;
 
 import java.util.List;
 
-import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
-import javax.persistence.Persistence;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
-import br.com.usjt.tcc.dao.UserDao;
+import br.com.usjt.tcc.interfaces.dao.UserDao;
 import br.com.usjt.tcc.model.Address;
 import br.com.usjt.tcc.model.User;
 
+@Component
 public class UserDaoTeste {
 
-	public static void main(String[] args) {
+	@Autowired
+	private UserDao userDao;
+	
+	public void test() {
 
 		User user = new User();
 		user.setName("Ronaldo");
@@ -31,12 +34,6 @@ public class UserDaoTeste {
 		address.setState("SP");
 
 		user.setAddress(address);
-
-		EntityManagerFactory entityManagerFactory = Persistence	.createEntityManagerFactory("tcc-mysql");
-		EntityManager entityManager = entityManagerFactory
-				.createEntityManager();
-
-		UserDao userDao = new UserDao(entityManager);
 
 // TESTES:
 		// CREATE

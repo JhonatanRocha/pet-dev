@@ -1,29 +1,30 @@
-package br.com.usjt.tcc.dao;
+package br.com.usjt.tcc.jpa.dao;
 
 import java.util.List;
 
 import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
+import javax.transaction.Transactional;
 
+import org.springframework.stereotype.Repository;
+
+import br.com.usjt.tcc.interfaces.dao.ColorDao;
 import br.com.usjt.tcc.model.Color;
 
-public class ColorDao {
+@Repository
+@Transactional
+public class JpaColorDao implements ColorDao{
+
+	@PersistenceContext
 	private EntityManager entityManager;
 
-	public ColorDao(EntityManager entityManager) {
-		this.entityManager = entityManager;
-	}
-
 	public void adiciona(Color color) {
-		entityManager.getTransaction().begin();
 		entityManager.persist(color);
-		entityManager.getTransaction().commit();
 	}
 
 	public void atualiza(Color color) {
-		entityManager.getTransaction().begin();
 		entityManager.merge(color);
-		entityManager.getTransaction().commit();
 	}
 
 	@SuppressWarnings("unchecked")
@@ -35,7 +36,7 @@ public class ColorDao {
 	public Color busca(Long id) {
 		return entityManager.find(Color.class, id);
 	}
-	
+
 	@SuppressWarnings("unchecked")
 	public List<Color> buscaPelaDescricao(String description) {
 		Query query = entityManager

@@ -1,31 +1,31 @@
-package br.com.usjt.tcc.dao;
+package br.com.usjt.tcc.jpa.dao;
 
 import java.util.List;
 
 import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
 import javax.persistence.TypedQuery;
+import javax.transaction.Transactional;
 
+import org.springframework.stereotype.Repository;
+
+import br.com.usjt.tcc.interfaces.dao.NGODao;
 import br.com.usjt.tcc.model.NGO;
 
-public class NGODao {
+@Repository
+@Transactional
+public class JpaNGODao implements NGODao{
 
+	@PersistenceContext
 	private EntityManager entityManager;
 
-	public NGODao(EntityManager entityManager) {
-		this.entityManager = entityManager;
-	}
-
 	public void adiciona(NGO ngo) {
-		entityManager.getTransaction().begin();
 		entityManager.persist(ngo);
-		entityManager.getTransaction().commit();
 	}
 
 	public void atualiza(NGO ngo) {
-		entityManager.getTransaction().begin();
-		entityManager.persist(ngo);
-		entityManager.getTransaction().commit();
+		entityManager.merge(ngo);
 	}
 
 	@SuppressWarnings("unchecked")
@@ -37,7 +37,7 @@ public class NGODao {
 	public NGO busca(Long id) {
 		return entityManager.find(NGO.class, id);
 	}
-	
+
 	public NGO buscaPeloDocument(String document) {
 		TypedQuery<NGO> query = entityManager.createQuery(
 				"select n from NGO n where n.document=:pDocument", NGO.class);

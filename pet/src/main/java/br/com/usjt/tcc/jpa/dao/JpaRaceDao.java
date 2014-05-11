@@ -1,29 +1,30 @@
-package br.com.usjt.tcc.dao;
+package br.com.usjt.tcc.jpa.dao;
 
 import java.util.List;
 
 import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
+import javax.transaction.Transactional;
 
+import org.springframework.stereotype.Repository;
+
+import br.com.usjt.tcc.interfaces.dao.RaceDao;
 import br.com.usjt.tcc.model.Race;
 
-public class RaceDao {
+@Repository
+@Transactional
+public class JpaRaceDao implements RaceDao{
+
+	@PersistenceContext
 	private EntityManager entityManager;
 
-	public RaceDao(EntityManager entityManager) {
-		this.entityManager = entityManager;
-	}
-
 	public void adiciona(Race race) {
-		entityManager.getTransaction().begin();
 		entityManager.persist(race);
-		entityManager.getTransaction().commit();
 	}
 
 	public void atualiza(Race race) {
-		entityManager.getTransaction().begin();
 		entityManager.merge(race);
-		entityManager.getTransaction().commit();
 	}
 
 	@SuppressWarnings("unchecked")
@@ -35,7 +36,7 @@ public class RaceDao {
 	public Race busca(Long id) {
 		return entityManager.find(Race.class, id);
 	}
-	
+
 	@SuppressWarnings("unchecked")
 	public List<Race> buscaPelaDescricao(String description) {
 		Query query = entityManager

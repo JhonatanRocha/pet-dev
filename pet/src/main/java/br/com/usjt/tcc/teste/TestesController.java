@@ -1,0 +1,77 @@
+package br.com.usjt.tcc.teste;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
+
+@Controller
+public class TestesController {
+
+	@Autowired
+	private UserDaoTeste userDaoTeste;
+	
+	@Autowired
+	private ColorDaoTeste colorDaoTeste;
+	
+	@Autowired
+	private NGODaoTeste ngoDaoTeste;
+	
+	@Autowired
+	private OwnerDaoTeste ownerDaoTeste;
+	
+	@Autowired
+	private PetDaoTeste petDaoTeste;
+	
+	@Autowired
+	private RaceDaoTeste raceDaoTeste;
+	
+	@Autowired
+	private TypeDaoTeste typeDaoTeste;
+	
+	@RequestMapping("testUserDao")
+	public void testUserDao(){
+		userDaoTeste.test();
+	}
+	
+	@RequestMapping("testColorDao")
+	public void testColorDao(){
+		colorDaoTeste.test();
+	}
+	
+	@RequestMapping("testNGODao")
+	public void testNGODao(){
+		ngoDaoTeste.test();
+	}
+	
+	@RequestMapping("testOwnerDao")
+	public void testOwnerDao(){
+		ownerDaoTeste.test();
+	}
+	
+	@RequestMapping("testPetDao")
+	public void testPetDao(){
+		petDaoTeste.test();
+	}
+	
+	@RequestMapping("testRaceDao")
+	public void testRaceDao(){
+		raceDaoTeste.test();
+	}
+	
+	@RequestMapping("testTypeDao")
+	public void testTypeDao(){
+		typeDaoTeste.test();
+	}
+	
+	@RequestMapping("testAllDaos")
+	public void testAllDaos(){
+		userDaoTeste.test();
+		colorDaoTeste.test();
+		raceDaoTeste.test();
+		typeDaoTeste.test();
+		petDaoTeste.test();
+		ngoDaoTeste.test();
+		ownerDaoTeste.test();
+	}
+	
+}

@@ -2,24 +2,22 @@ package br.com.usjt.tcc.teste;
 
 import java.util.List;
 
-import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
-import javax.persistence.Persistence;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
-import br.com.usjt.tcc.dao.RaceDao;
+import br.com.usjt.tcc.interfaces.dao.RaceDao;
 import br.com.usjt.tcc.model.Race;
 
+@Component
 public class RaceDaoTeste {
 
-	public static void main(String[] args) {
+	@Autowired
+	private RaceDao raceDao;
+	
+	public void test() {
 
 		Race race = new Race();
 		race.setDescription("Pug");
-		
-		EntityManagerFactory entityManagerFactory = Persistence	.createEntityManagerFactory("tcc-mysql");
-		EntityManager entityManager = entityManagerFactory.createEntityManager();
-
-		RaceDao raceDao = new RaceDao(entityManager);
 
 // TESTES:
 		// CREATE

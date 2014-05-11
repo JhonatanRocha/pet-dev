@@ -1,34 +1,29 @@
-package br.com.usjt.tcc.dao;
+package br.com.usjt.tcc.jpa.dao;
 
 import java.util.List;
-
 import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
 import javax.persistence.TypedQuery;
-
+import javax.transaction.Transactional;
 import org.springframework.stereotype.Repository;
-
+import br.com.usjt.tcc.interfaces.dao.UserDao;
 import br.com.usjt.tcc.model.User;
 
-public class UserDao {
+@Repository
+@Transactional
+public class JpaUserDao implements UserDao {
 
+	@PersistenceContext
 	private EntityManager entityManager;
 
-	public UserDao(EntityManager entityManager) {
-		this.entityManager = entityManager;
-	}
-
 	public void adiciona(User user) {
-		entityManager.getTransaction().begin();
 		entityManager.persist(user.getAddress());
 		entityManager.persist(user);
-		entityManager.getTransaction().commit();
 	}
 
 	public void atualiza(User user) {
-		entityManager.getTransaction().begin();
 		entityManager.merge(user);
-		entityManager.getTransaction().commit();
 	}
 
 	@SuppressWarnings("unchecked")

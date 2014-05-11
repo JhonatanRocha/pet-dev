@@ -1,30 +1,30 @@
-package br.com.usjt.tcc.dao;
+package br.com.usjt.tcc.jpa.dao;
 
 import java.util.List;
 
 import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
+import javax.transaction.Transactional;
 
+import org.springframework.stereotype.Repository;
+
+import br.com.usjt.tcc.interfaces.dao.PetDao;
 import br.com.usjt.tcc.model.Pet;
 
-public class PetDao {
+@Repository
+@Transactional
+public class JpaPetDao implements PetDao{
 
+	@PersistenceContext
 	private EntityManager entityManager;
 
-	public PetDao(EntityManager entityManager) {
-		this.entityManager = entityManager;
-	}
-
 	public void adiciona(Pet pet) {
-		entityManager.getTransaction().begin();
 		entityManager.persist(pet);
-		entityManager.getTransaction().commit();
 	}
 
 	public void atualiza(Pet pet) {
-		entityManager.getTransaction().begin();
-		entityManager.persist(pet);
-		entityManager.getTransaction().commit();
+		entityManager.merge(pet);
 	}
 
 	@SuppressWarnings("unchecked")

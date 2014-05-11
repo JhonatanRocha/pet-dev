@@ -2,24 +2,22 @@ package br.com.usjt.tcc.teste;
 
 import java.util.List;
 
-import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
-import javax.persistence.Persistence;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
-import br.com.usjt.tcc.dao.ColorDao;
+import br.com.usjt.tcc.interfaces.dao.ColorDao;
 import br.com.usjt.tcc.model.Color;
 
+@Component
 public class ColorDaoTeste {
 
-	public static void main(String[] args) {
+	@Autowired
+	private ColorDao colorDao;
+	
+	public void test() {
 
 		Color color = new Color();
 		color.setDescription("Pardo");
-		
-		EntityManagerFactory entityManagerFactory = Persistence	.createEntityManagerFactory("tcc-mysql");
-		EntityManager entityManager = entityManagerFactory.createEntityManager();
-
-		ColorDao colorDao = new ColorDao(entityManager);
 
 // TESTES:
 		// CREATE

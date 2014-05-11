@@ -1,30 +1,30 @@
-package br.com.usjt.tcc.dao;
+package br.com.usjt.tcc.jpa.dao;
 
 import java.util.List;
 
 import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
+import javax.transaction.Transactional;
 
+import org.springframework.stereotype.Repository;
+
+import br.com.usjt.tcc.interfaces.dao.TypeDao;
 import br.com.usjt.tcc.model.Type;
 
-public class TypeDao {
+@Repository
+@Transactional
+public class JpaTypeDao implements TypeDao {
 
+	@PersistenceContext
 	private EntityManager entityManager;
 
-	public TypeDao(EntityManager entityManager) {
-		this.entityManager = entityManager;
-	}
-
 	public void adiciona(Type type) {
-		entityManager.getTransaction().begin();
 		entityManager.persist(type);
-		entityManager.getTransaction().commit();
 	}
 
 	public void atualiza(Type type) {
-		entityManager.getTransaction().begin();
 		entityManager.merge(type);
-		entityManager.getTransaction().commit();
 	}
 
 	@SuppressWarnings("unchecked")

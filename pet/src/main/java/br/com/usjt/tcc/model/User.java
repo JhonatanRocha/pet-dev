@@ -22,9 +22,9 @@ public class User {
 	private String email;
 	private String password;
 
-	@Column(columnDefinition = "VARCHAR(10)")
+	@Column(columnDefinition = "VARCHAR(20)")
 	private String phone;
-	@Column(columnDefinition = "VARCHAR(11)")
+	@Column(columnDefinition = "VARCHAR(20)")
 	private String cellphone;
 
 	@OneToOne

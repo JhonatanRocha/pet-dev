@@ -1,25 +1,28 @@
 package br.com.usjt.tcc.teste;
 
 import java.util.List;
-
-import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
-import javax.persistence.Persistence;
-
-import br.com.usjt.tcc.dao.ColorDao;
-import br.com.usjt.tcc.dao.PetDao;
-import br.com.usjt.tcc.dao.RaceDao;
-import br.com.usjt.tcc.dao.TypeDao;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 import br.com.usjt.tcc.enun.Size;
+import br.com.usjt.tcc.interfaces.dao.ColorDao;
+import br.com.usjt.tcc.interfaces.dao.PetDao;
+import br.com.usjt.tcc.interfaces.dao.RaceDao;
+import br.com.usjt.tcc.interfaces.dao.TypeDao;
 import br.com.usjt.tcc.model.Pet;
 
+@Component
 public class PetDaoTeste {
 
-	public static void main(String[] args) {
-
-		EntityManagerFactory entityManagerFactory = Persistence	.createEntityManagerFactory("tcc-mysql");
-		EntityManager entityManager = entityManagerFactory.createEntityManager();
-		
+	@Autowired
+	private RaceDao raceDao;
+	@Autowired
+	private TypeDao typeDao;
+	@Autowired
+	private ColorDao colorDao;
+	@Autowired
+	private PetDao petDao;
+	
+	public void test() {
 		Pet pet = new Pet();
 		pet.setDeficiency("Fisica");
 		pet.setGender("M");
@@ -28,12 +31,9 @@ public class PetDaoTeste {
 		pet.setName("Bruce");
 		pet.setPicturePath("\fotos\bruce");
 		pet.setSize(Size.BIG);
-		pet.setRace(new RaceDao(entityManager).busca(new Long(1)));
-		pet.setType(new TypeDao(entityManager).busca(new Long(1)));
-		pet.setColor(new ColorDao(entityManager).busca(new Long(1)));
-		
-		
-		PetDao petDao = new PetDao(entityManager);
+		pet.setRace(raceDao.busca(new Long(1)));
+		pet.setType(typeDao.busca(new Long(1)));
+		pet.setColor(colorDao.busca(new Long(1)));
 
 // TESTES:
 		// CREATE
@@ -45,7 +45,7 @@ public class PetDaoTeste {
 			
 		// UPDATE
 		petAux.setName("Rex");
-		petAux.setColor(new ColorDao(entityManager).busca(new Long(1)));
+		petAux.setColor(colorDao.busca(new Long(1)));
 		petDao.atualiza(petAux);
 		
 		// List

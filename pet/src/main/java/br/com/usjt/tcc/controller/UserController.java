@@ -1,21 +1,26 @@
 package br.com.usjt.tcc.controller;
 
 import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
-import javax.persistence.Persistence;
-
+import javax.persistence.PersistenceContext;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
-
 import br.com.usjt.tc.helper.HashHelper;
-import br.com.usjt.tcc.dao.UserDao;
+import br.com.usjt.tcc.interfaces.dao.UserDao;
 import br.com.usjt.tcc.model.Address;
 import br.com.usjt.tcc.model.User;
 
 @Controller
 public class UserController {
 
+	
+	@Autowired
+	UserDao userDao;
+	
+	@PersistenceContext
+	private EntityManager entityManager;
+	
 	@RequestMapping("")
 	public String main() {
 		return "/user/login";
@@ -37,16 +42,7 @@ public class UserController {
 		user.setCellphone(user.getCellphone().replaceAll("\\D", ""));  
 		user.setPhone(user.getPhone().replaceAll("\\D", ""));
 		
-		EntityManagerFactory entityManagerFactory = Persistence
-				.createEntityManagerFactory("tcc-mysql");
-		EntityManager entityManager = entityManagerFactory
-				.createEntityManager();
-
-		UserDao userDao = new UserDao(entityManager);
-
 		userDao.adiciona(user);
-
-		entityManager.close();
 
 		return "user/login";
 	}

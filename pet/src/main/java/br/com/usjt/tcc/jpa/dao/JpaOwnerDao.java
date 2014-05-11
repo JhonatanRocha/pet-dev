@@ -1,30 +1,30 @@
-package br.com.usjt.tcc.dao;
+package br.com.usjt.tcc.jpa.dao;
 
 import java.util.List;
 
 import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
+import javax.transaction.Transactional;
 
+import org.springframework.stereotype.Repository;
+
+import br.com.usjt.tcc.interfaces.dao.OwnerDao;
 import br.com.usjt.tcc.model.Owner;
 
-public class OwnerDao {
+@Repository
+@Transactional
+public class JpaOwnerDao implements OwnerDao{
 
+	@PersistenceContext
 	private EntityManager entityManager;
 
-	public OwnerDao(EntityManager entityManager) {
-		this.entityManager = entityManager;
-	}
-
 	public void adiciona(Owner owner) {
-		entityManager.getTransaction().begin();
 		entityManager.persist(owner);
-		entityManager.getTransaction().commit();
 	}
 
 	public void atualiza(Owner owner) {
-		entityManager.getTransaction().begin();
-		entityManager.persist(owner);
-		entityManager.getTransaction().commit();
+		entityManager.merge(owner);
 	}
 
 	@SuppressWarnings("unchecked")

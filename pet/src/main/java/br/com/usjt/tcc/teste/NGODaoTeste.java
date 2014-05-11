@@ -2,31 +2,33 @@ package br.com.usjt.tcc.teste;
 
 import java.util.List;
 
-import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
-import javax.persistence.Persistence;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
-import br.com.usjt.tcc.dao.NGODao;
-import br.com.usjt.tcc.dao.PetDao;
-import br.com.usjt.tcc.dao.UserDao;
+import br.com.usjt.tcc.interfaces.dao.NGODao;
+import br.com.usjt.tcc.interfaces.dao.PetDao;
+import br.com.usjt.tcc.interfaces.dao.UserDao;
 import br.com.usjt.tcc.model.NGO;
 
+@Component
 public class NGODaoTeste {
 
-	public static void main(String[] args) {
+	@Autowired
+	private NGODao ngoDao;
+	@Autowired
+	private PetDao petDao;
+	@Autowired
+	private UserDao userDao;
+	
+	public void test() {
 
-		EntityManagerFactory entityManagerFactory = Persistence	.createEntityManagerFactory("tcc-mysql");
-		EntityManager entityManager = entityManagerFactory.createEntityManager();
-		
 		NGO ngo = new NGO();
 		ngo.setDocument("333444");
 		ngo.setSite("www.ong.com.br");
-		ngo.setPets(new PetDao(entityManager).lista());
-		ngo.setUsers(new UserDao(entityManager).lista());
-		ngo.setAdministrator(new UserDao(entityManager).busca(new Long(1)));
+		ngo.setPets(petDao.lista());
+		ngo.setUsers(userDao.lista());
+		ngo.setAdministrator(userDao.busca(new Long(1)));
 				
-		NGODao ngoDao = new NGODao(entityManager);
-
 // TESTES:
 		// CREATE
 		ngoDao.adiciona(ngo);
@@ -40,7 +42,7 @@ public class NGODaoTeste {
 		
 		// UPDATE
 		ngoAux.setSite("www.outravezcafe.com.br");
-		ngoAux.setAdministrator(new UserDao(entityManager).busca(new Long(1)));
+		ngoAux.setAdministrator(userDao.busca(new Long(1)));
 		ngoDao.atualiza(ngoAux);
 		
 		// List
