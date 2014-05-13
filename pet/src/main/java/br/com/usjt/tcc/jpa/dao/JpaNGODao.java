@@ -15,7 +15,7 @@ import br.com.usjt.tcc.model.NGO;
 
 @Repository
 @Transactional
-public class JpaNGODao implements NGODao{
+public class JpaNGODao implements NGODao {
 
 	@PersistenceContext
 	private EntityManager entityManager;
@@ -38,11 +38,11 @@ public class JpaNGODao implements NGODao{
 		return entityManager.find(NGO.class, id);
 	}
 
-	public NGO buscaPeloDocument(String document) {
+	public NGO buscaPeloDocument(String cnpj) {
 		TypedQuery<NGO> query = entityManager.createQuery(
-				"select n from NGO n where n.document=:pDocument", NGO.class);
+				"select n from NGO n where n.cnpj=:pCnpj", NGO.class);
 
-		query.setParameter("pDocument", document);
+		query.setParameter("pCnpj", cnpj);
 		NGO ngo = query.getSingleResult();
 		return ngo;
 	}

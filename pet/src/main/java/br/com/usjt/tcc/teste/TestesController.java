@@ -9,69 +9,87 @@ public class TestesController {
 
 	@Autowired
 	private UserDaoTeste userDaoTeste;
-	
+
 	@Autowired
 	private ColorDaoTeste colorDaoTeste;
-	
+
 	@Autowired
 	private NGODaoTeste ngoDaoTeste;
-	
+
 	@Autowired
 	private OwnerDaoTeste ownerDaoTeste;
-	
+
 	@Autowired
 	private PetDaoTeste petDaoTeste;
-	
+
 	@Autowired
 	private RaceDaoTeste raceDaoTeste;
-	
+
 	@Autowired
 	private TypeDaoTeste typeDaoTeste;
-	
+
+	@Autowired
+	private ProductDaoTeste productDaoTeste;
+
+	@Autowired
+	private PetShopDaoTeste petShopDaoTeste;
+
 	@RequestMapping("testUserDao")
-	public void testUserDao(){
+	public void testUserDao() {
 		userDaoTeste.test();
 	}
-	
+
 	@RequestMapping("testColorDao")
-	public void testColorDao(){
+	public void testColorDao() {
 		colorDaoTeste.test();
 	}
-	
+
 	@RequestMapping("testNGODao")
-	public void testNGODao(){
+	public void testNGODao() {
 		ngoDaoTeste.test();
 	}
-	
+
 	@RequestMapping("testOwnerDao")
-	public void testOwnerDao(){
+	public void testOwnerDao() {
 		ownerDaoTeste.test();
 	}
-	
+
 	@RequestMapping("testPetDao")
-	public void testPetDao(){
+	public void testPetDao() {
 		petDaoTeste.test();
 	}
-	
+
 	@RequestMapping("testRaceDao")
-	public void testRaceDao(){
+	public void testRaceDao() {
 		raceDaoTeste.test();
 	}
-	
+
 	@RequestMapping("testTypeDao")
-	public void testTypeDao(){
+	public void testTypeDao() {
 		typeDaoTeste.test();
 	}
-	
+
+	@RequestMapping("testPetShopDao")
+	public void testPetShopDao() {
+		petShopDaoTeste.test();
+	}
+
+	@RequestMapping("testProductDao")
+	public void testProductDao() {
+		productDaoTeste.test();
+	}
+
 	@RequestMapping("testAllDaos")
-	public void testAllDaos(){
+	public void testAllDaos() {
 		userDaoTeste.test();
 		colorDaoTeste.test();
 		raceDaoTeste.test();
 		typeDaoTeste.test();
+		productDaoTeste.test();
 		petDaoTeste.test();
 		ngoDaoTeste.test();
+		petShopDaoTeste.test();
 		ownerDaoTeste.test();
 	}
-	
+
 }

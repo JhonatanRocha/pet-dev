@@ -23,7 +23,7 @@ public class NGODaoTeste {
 	public void test() {
 
 		NGO ngo = new NGO();
-		ngo.setDocument("333444");
+		ngo.setCnpj("333444");
 		ngo.setSite("www.ong.com.br");
 		ngo.setPets(petDao.lista());
 		ngo.setUsers(userDao.lista());
