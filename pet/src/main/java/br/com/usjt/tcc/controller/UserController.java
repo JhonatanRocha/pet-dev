@@ -2,11 +2,13 @@ package br.com.usjt.tcc.controller;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
-import br.com.usjt.tc.helper.HashHelper;
+
+import br.com.usjt.tcc.helper.HashHelper;
 import br.com.usjt.tcc.interfaces.dao.UserDao;
 import br.com.usjt.tcc.model.Address;
 import br.com.usjt.tcc.model.User;

@@ -1,4 +1,4 @@
-package br.com.usjt.tc.helper;
+package br.com.usjt.tcc.helper;
 
 import java.security.MessageDigest;
 
