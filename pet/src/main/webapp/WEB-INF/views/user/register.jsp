@@ -9,15 +9,6 @@
 	<title>Junte-se a nós</title>
 </head>
 
-<script> 
-	jQuery(function($){
-		$("#birth").mask("99/99/9999");
-		$("#phone").mask("(99) 9999-9999");
-		$("#cellphone").mask("(99) 99999-9999");
-		$("#zipcode").mask("99999-999");
-	});
-
-</script>
 
 <body>
 
@@ -144,4 +135,5 @@
 
 
 </body>
+
 </html>
