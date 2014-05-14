@@ -29,9 +29,9 @@ public class User {
 
 	@OneToOne
 	private Address address;
-	private Boolean isOwner;
-	private Boolean isOfNGO;
-	private Boolean isOfPetShop;
+	private Boolean isOwner = false;
+	private Boolean isOfNGO = false;
+	private Boolean isOfPetShop = false;
 	private Boolean isActivated = true;
 
 	public Long getId() {

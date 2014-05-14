@@ -12,18 +12,18 @@
 
 	<div class="container">
 
-		<nav class="navbar navbar-inverse" role="navigation"> <a
-			class="navbar-brand" href="#">4 Our Lives</a>
-		<div class="pull-right">
-			<form class="navbar-form navbar-left" role="search">
-				<div class="form-group">
-					<input type="text" name="login" class="form-control"
-						placeholder="login"> <input type="password"
-						name="password" class="form-control" placeholder="Senha">
-				</div>
-				<button type="submit" class="btn btn-primary">Login</button>
-			</form>
-		</div>
+		<nav class="navbar navbar-inverse" role="navigation">
+			<a class="navbar-brand" href="#">4 Our Lives</a>
+			<div class="pull-right">
+			
+				<form class="navbar-form navbar-left" role="search">
+					<div class="form-group">
+						<input type="text" name="login" class="form-control" placeholder="login"> 
+						<input type="password" name="password" class="form-control" placeholder="Senha">
+					</div>
+					<button type="submit" class="btn btn-primary">Login</button>
+				</form>
+			</div>
 		</nav>
 
 
@@ -61,8 +61,8 @@
 
 							<div class="col-xs-12">
 								<div class="form-group">
-									<label for="email">E-mail</label> <input type="text"
-										class="form-control" id="email" name="email">
+									<label for="email">E-mail</label> 
+									<input type="text" class="form-control" id="email" name="email">
 								</div>
 							</div>
 
@@ -72,29 +72,23 @@
 
 							<div class="col-xs-12">
 								<div class="form-group">
-									<label for="password">Senha</label> <input type="password"
-										class="form-control" id="password" name="password">
+									<label for="password">Senha</label>
+									<input type="password" class="form-control" id="password" name="password">
 								</div>
 							</div>
 
 							<div class="row">
 								<div class="form-button">
 									<div class="col-xs-5">
-										<label> <input type="checkbox" name="isOwner"
-											value="true">Dono de animal
-										</label>
+										<label> <input type="checkbox" name="isOwner" value="true">Dono de animal</label>
 									</div>
 
 									<div class="col-xs-3">
-										<label> <input type="checkbox" name="isOfNGO"
-											value="true">Ong
-										</label>
+										<label> <input type="checkbox" name="isOfNGO" value="true">Ong</label>
 									</div>
 
 									<div class="col-xs-4">
-										<label> <input type="checkbox" name="isOfPetShop"
-											value="true">Pet Shop
-										</label>
+										<label> <input type="checkbox" name="isOfPetShop" value="true">Pet Shop</label>
 									</div>
 								</div>
 							</div>
@@ -102,9 +96,7 @@
 							<div class="row">
 								<div class="col-xs-4">
 									<div class="form-group">
-										<input type="submit"
-											class="form-control form-button btn btn-success"
-											value="Cadastrar">
+										<input type="submit" class="form-control form-button btn btn-success" value="Cadastrar">
 									</div>
 								</div>
 							</div>
