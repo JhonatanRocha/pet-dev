@@ -1,10 +1,12 @@
 package br.com.usjt.tcc.teste;
 
+import java.util.Calendar;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+import br.com.usjt.tcc.interfaces.dao.PetDao;
 import br.com.usjt.tcc.interfaces.dao.UserDao;
 import br.com.usjt.tcc.model.Address;
 import br.com.usjt.tcc.model.User;
@@ -15,6 +17,10 @@ public class UserDaoTeste {
 	@Autowired
 	private UserDao userDao;
 	
+	@Autowired
+	private PetDao petDao;
+	
+	
 	public void test() {
 
 		User user = new User();
@@ -23,9 +29,14 @@ public class UserDaoTeste {
 		user.setCellphone("987816876");
 		user.setPhone("27419489");
 		user.setPassword("dsfwd4w1");
-		user.setIsOwner(true);
 		user.setIsOfPetShop(false);
 		user.setIsOfNGO(false);
+		user.setPets(petDao.lista());
+		user.setScore(990);
+		Calendar birth = Calendar.getInstance();
+		birth.set(2014, 12, 24);
+		user.setBirth(birth);
+		
 
 		Address address = new Address();
 		address.setStreet("av. paulista");

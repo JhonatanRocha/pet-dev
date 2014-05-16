@@ -21,6 +21,8 @@ public class JpaPetShopDao implements PetShopDao {
 	private EntityManager entityManager;
 
 	public void adiciona(PetShop petShop) {
+		entityManager.persist(petShop.getAdministrator().getAddress());
+		entityManager.persist(petShop.getAdministrator());
 		entityManager.persist(petShop);
 	}
 

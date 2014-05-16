@@ -1,12 +1,20 @@
 package br.com.usjt.tcc.model;
 
+import java.util.Calendar;
+import java.util.List;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
+
+import org.springframework.format.annotation.DateTimeFormat;
 
 @Entity
 @Table(name = "user")
@@ -27,9 +35,18 @@ public class User {
 	@Column(columnDefinition = "VARCHAR(20)")
 	private String cellphone;
 
+	@DateTimeFormat(pattern="dd/MM/yyyy")
+	@Column
+	@Temporal(TemporalType.DATE)
+	private Calendar birth;
+
+	@OneToMany
+	private List<Pet> pets;
+
+	private int score;
+	
 	@OneToOne
 	private Address address;
-	private Boolean isOwner = false;
 	private Boolean isOfNGO = false;
 	private Boolean isOfPetShop = false;
 	private Boolean isActivated = true;
@@ -90,14 +107,6 @@ public class User {
 		this.address = address;
 	}
 
-	public Boolean getIsOwner() {
-		return isOwner;
-	}
-
-	public void setIsOwner(Boolean isOwner) {
-		this.isOwner = isOwner;
-	}
-
 	public Boolean getIsOfNGO() {
 		return isOfNGO;
 	}
@@ -120,5 +129,29 @@ public class User {
 
 	public void setIsActivated(Boolean isActivated) {
 		this.isActivated = isActivated;
+	}
+
+	public Calendar getBirth() {
+		return birth;
+	}
+
+	public void setBirth(Calendar birth) {
+		this.birth = birth;
+	}
+
+	public List<Pet> getPets() {
+		return pets;
+	}
+
+	public void setPets(List<Pet> pets) {
+		this.pets = pets;
+	}
+
+	public int getScore() {
+		return score;
+	}
+
+	public void setScore(int score) {
+		this.score = score;
 	}
 }

@@ -16,7 +16,7 @@
 		<nav class="navbar navbar-inverse" role="navigation">
 		 	<a	class="navbar-brand" href="#">4 Our Lives</a> 
 		 </nav>
-		<form name="register" action="registerUser" method="post">
+		<form id="register" name="register" action="registerUser" method="post">
 
 			<fieldset>
 				<legend>Junte-se a nós</legend>
@@ -24,26 +24,27 @@
 				<div class="row">
 					<div class="col-md-6 col-sm-12">
 						<div class="form-group">
-							<label for="name">Nome</label> <input type="text" class="form-control" id="name" name="name" placeholder="Digite seu nome completo...">
+							<label for="name">Nome</label> 
+							<input type="text" class="form-control" id="user.name" name="user.name" placeholder="Digite seu nome completo...">
 						</div>
 					</div>
 					
 					<div class="col-md-2 col-sm-12">
 						<label for="birth">Data de Nascimento</label>
-						<input type="text" class="form-control" id="birth" name="birth">
+						<input type="text" class="form-control" id="birth" name="user.birth">
 					</div>
 					
 					<div class="col-md-2 col-sm-12">
 						<div class="form-group">
 							<label for="phone">Telefone</label>
-							<input type="text" class="form-control" id="phone" name="phone">
+							<input type="text" class="form-control" id="phone" name="user.phone">
 						</div>
 					</div>
 
 					<div class="col-md-2 col-sm-12">
 						<div class="form-group">
 							<label for="cellphone">Celular</label>
-							<input type="text" class="form-control" id="cellphone" name="cellphone">
+							<input type="text" class="form-control" id="cellphone" name="user.cellphone">
 						</div>
 					</div>
 					
@@ -53,7 +54,7 @@
 					<div class="col-md-3 col-sm-12">
 						<div class="form-group">
 							<label for="email">E-mail*</label> 
-							<input type="text" class="form-control" id="email" name="email" placeholder="Digite seu email..." value="${email}">
+							<input type="text" class="form-control" id="user.email" name="user.email" placeholder="Digite seu email..." value="${email}">
 						</div>
 					</div>
 
@@ -67,7 +68,7 @@
 					<div class="col-md-2 col-sm-12">
 						<div class="form-group">
 							<label for="password">Senha*</label> 
-							<input type="password" class="form-control" id="password" name="password" placeholder="Informe sua senha..." value="${password}">
+							<input type="password" class="form-control" id="user.password" name="user.password" placeholder="Informe sua senha..." value="${password}">
 						</div>
 					</div>
 
@@ -87,26 +88,26 @@
 					<div class="col-md-2 col-sm-12">
 						<div class="form-group">
 							<label for="zipcode">CEP</label> 
-						 	<input type="text" class="form-control" id="zipcode" name="zipcode">
+						 	<input type="text" class="form-control" id="zipcode" name="user.address.zipcode">
 						</div>
 					</div>
 
 					<div class="col-md-1 col-sm-12">
 						<div class="form-group">
 							<label for="state">UF</label>
-							<input type="text" class="form-control" id="state" name="state">
+							<input type="text" class="form-control" id="state" name="user.address.state">
 						</div>
 					</div>
 					
 					<div class="col-md-3 col-sm-12">
 						<label for="city">Cidade</label>
-						<input type="text" class="form-control" id="city" name="city">
+						<input type="text" class="form-control" id="city" name="user.address.city">
 					</div>
 
 					<div class="col-md-5 col-sm-12">
 						<div class="form-group">
 							<label for="street">Endereço</label>
-							<input type="text" id="street" name="street" class="form-control">
+							<input type="text" id="street" name="user.address.street" class="form-control">
 						</div>
 					</div>
 				</div>
@@ -138,7 +139,8 @@
 				<div class="row">
 					<div class="col-md-6 col-sm-12">
 						<div class="form-group">
-							<label for="company.name">Nome/Razão Social</label> <input type="text" class="form-control" id="company.name" name="company.name">
+							<label for="company.name">Nome/Razão Social</label>
+							<input type="text" class="form-control" id="company.name" name="company.name">
 						</div>
 					</div>
 				</div>
@@ -147,14 +149,14 @@
 					<div class="col-md-5 col-sm-12">
 						<div class="form-group">
 							<label for="cnpj">CNPJ</label> 
-							<input type="text" class="form-control" id="company.cnpj" name="cnpj">
+							<input type="text" class="form-control" id="company.cnpj" name="company.cnpj">
 						</div>
 					</div>
 
 					<div class="col-md-5 col-sm-12">
 						<div class="form-group">
 							<label for="site">Site</label> 
-							<input type="text" class="form-control" id="company.site" name="site">
+							<input type="text" class="form-control" id="company.site" name="company.site">
 						</div>
 					</div>
 				</div>

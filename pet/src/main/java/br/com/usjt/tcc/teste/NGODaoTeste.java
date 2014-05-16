@@ -1,5 +1,6 @@
 package br.com.usjt.tcc.teste;
 
+import java.util.Calendar;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -8,7 +9,9 @@ import org.springframework.stereotype.Component;
 import br.com.usjt.tcc.interfaces.dao.NGODao;
 import br.com.usjt.tcc.interfaces.dao.PetDao;
 import br.com.usjt.tcc.interfaces.dao.UserDao;
+import br.com.usjt.tcc.model.Address;
 import br.com.usjt.tcc.model.NGO;
+import br.com.usjt.tcc.model.User;
 
 @Component
 public class NGODaoTeste {
@@ -27,7 +30,29 @@ public class NGODaoTeste {
 		ngo.setSite("www.ong.com.br");
 		ngo.setPets(petDao.lista());
 		ngo.setUsers(userDao.lista());
-		ngo.setAdministrator(userDao.busca(new Long(1)));
+		
+		User user = new User();
+		user.setName("Ronaldo");
+		user.setEmail("donodaong@email.com");
+		user.setCellphone("987816876");
+		user.setPhone("27419489");
+		user.setPassword("dsfwd4w1");
+		user.setIsOfPetShop(false);
+		user.setIsOfNGO(false);
+		user.setScore(990);
+		Calendar birth = Calendar.getInstance();
+		birth.set(2014, 12, 24);
+		user.setBirth(birth);
+		
+		Address address = new Address();
+		address.setStreet("av. paulista");
+		address.setZipcode("08811110");
+		address.setCity("Sao Paulo");
+		address.setState("SP");
+
+		user.setAddress(address);
+		
+		ngo.setAdministrator(user);
 				
 // TESTES:
 		// CREATE
@@ -42,7 +67,6 @@ public class NGODaoTeste {
 		
 		// UPDATE
 		ngoAux.setSite("www.outravezcafe.com.br");
-		ngoAux.setAdministrator(userDao.busca(new Long(1)));
 		ngoDao.atualiza(ngoAux);
 		
 		// List

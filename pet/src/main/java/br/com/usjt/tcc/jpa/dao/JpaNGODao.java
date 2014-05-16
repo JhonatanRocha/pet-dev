@@ -21,6 +21,8 @@ public class JpaNGODao implements NGODao {
 	private EntityManager entityManager;
 
 	public void adiciona(NGO ngo) {
+		entityManager.persist(ngo.getAdministrator().getAddress());
+		entityManager.persist(ngo.getAdministrator());
 		entityManager.persist(ngo);
 	}
 

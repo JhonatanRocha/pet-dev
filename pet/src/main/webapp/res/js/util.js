@@ -6,34 +6,34 @@ jQuery(function($){
 		$("#zipcode").mask("99999-999");
 	});
 
-//Responsável por realizar a busca do CEP digitado e popular os demais campos de endereço
+//Responsï¿½vel por realizar a busca do CEP digitado e popular os demais campos de endereï¿½o
 $(function(){
 
 	    /**
 	     * Atribuo ao elemento #zipcode, o evento blur
-	     * Blur, dispara uma ação, quando o foco
+	     * Blur, dispara uma aï¿½ï¿½o, quando o foco
 	     * sair do elemento, no nosso caso cep
 	     */
 	    $("#zipcode").blur(function(){
 	        /**
 	         * Resgatamos o valor do campo #cep
-	         * usamos o replace, pra remover tudo que não for numérico,
-	         * com uma expressão regular
+	         * usamos o replace, pra remover tudo que nï¿½o for numï¿½rico,
+	         * com uma expressï¿½o regular
 	         */
 	        var cep     = $(this).val().replace(/[^0-9]/, '');
-	        //Armazena a referência da div#boxCampos
+	        //Armazena a referï¿½ncia da div#boxCampos
 	        //var boxes   = $("#boxCampos");
-	         //Armazena a referência da div#mensagemErro
+	         //Armazena a referï¿½ncia da div#mensagemErro
 	        //var msgErro = $("#mensagemErro");
-	        //Verifica se não está vazio
+	        //Verifica se nï¿½o estï¿½ vazio
 	        if(cep !== ""){
-	             //Cria variável com a URL da consulta, passando o CEP
+	             //Cria variï¿½vel com a URL da consulta, passando o CEP
 	             var url = 'http://cep.republicavirtual.com.br/web_cep.php?cep='+cep+'&formato=json';
 	             /**
-	              * Fazemos um requisição a URL, como vamos retornar json,
-	              * usamos o método $.getJSON;
-	              * Que é composta pela URL, e a função que vai retorna os dados
-	              * o qual passamos a variável json, para recuperar os valores
+	              * Fazemos um requisiï¿½ï¿½o a URL, como vamos retornar json,
+	              * usamos o mï¿½todo $.getJSON;
+	              * Que ï¿½ composta pela URL, e a funï¿½ï¿½o que vai retorna os dados
+	              * o qual passamos a variï¿½vel json, para recuperar os valores
 	              */
 	             $.getJSON(url, function(json){
 	                    //Atribuimos o valor aos inputs
@@ -47,9 +47,9 @@ $(function(){
 	                     */
 	                    boxes.removeClass('ocultar');
 	                 
-	                    //Usamos o método fail, caso não retorne nada
+	                    //Usamos o mï¿½todo fail, caso nï¿½o retorne nada
 	                }).fail(function(){
-	                 //Não retornando um valor válido, ele mostra a mensagem
+	                 //Nï¿½o retornando um valor vï¿½lido, ele mostra a mensagem
 	                 //msgErro.removeClass('ocultar').html('CEP inexistente')
 	            });
 	        }
@@ -60,12 +60,15 @@ $(function(){
 	$(document).ready(function(){
 	  $("input#isOwner").click(function(){
 	    $("fieldset.companyHidden").hide("slow",function(){
+	    document.register.action = "registerUser";
 	    });
 	  });
 	  $( "input#isOfNGO" ).click(function() {
 	    $( "fieldset.companyHidden" ).show( 1500 );
+	    document.register.action = "registerNGO";
 	  });
 	  $( "input#isOfPetShop" ).click(function() {
 	    $( "fieldset.companyHidden" ).show( 1500 );
+	    document.register.action = "registerPetShop";
 	  });
 	});

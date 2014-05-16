@@ -17,9 +17,6 @@ public class TestesController {
 	private NGODaoTeste ngoDaoTeste;
 
 	@Autowired
-	private OwnerDaoTeste ownerDaoTeste;
-
-	@Autowired
 	private PetDaoTeste petDaoTeste;
 
 	@Autowired
@@ -49,11 +46,6 @@ public class TestesController {
 		ngoDaoTeste.test();
 	}
 
-	@RequestMapping("testOwnerDao")
-	public void testOwnerDao() {
-		ownerDaoTeste.test();
-	}
-
 	@RequestMapping("testPetDao")
 	public void testPetDao() {
 		petDaoTeste.test();
@@ -81,15 +73,14 @@ public class TestesController {
 
 	@RequestMapping("testAllDaos")
 	public void testAllDaos() {
-		userDaoTeste.test();
 		colorDaoTeste.test();
 		raceDaoTeste.test();
 		typeDaoTeste.test();
-		productDaoTeste.test();
 		petDaoTeste.test();
-		ngoDaoTeste.test();
+		userDaoTeste.test();
+		productDaoTeste.test();
 		petShopDaoTeste.test();
-		ownerDaoTeste.test();
+		ngoDaoTeste.test();
 	}
 
 }
