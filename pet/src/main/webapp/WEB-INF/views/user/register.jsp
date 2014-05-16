@@ -31,7 +31,7 @@
 					
 					<div class="col-md-2 col-sm-12">
 						<label for="birth">Data de Nascimento</label>
-						<input type="text" class="form-control" id="birth" name="user.birth">
+						<input type="date" class="form-control" id="birth" name="user.birth">
 					</div>
 					
 					<div class="col-md-2 col-sm-12">
@@ -149,7 +149,7 @@
 					<div class="col-md-5 col-sm-12">
 						<div class="form-group">
 							<label for="cnpj">CNPJ</label> 
-							<input type="text" class="form-control" id="company.cnpj" name="company.cnpj">
+							<input type="text" class="form-control" id="cnpj" name="company.cnpj">
 						</div>
 					</div>
 

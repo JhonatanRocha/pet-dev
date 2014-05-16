@@ -1,9 +1,10 @@
 // Mascara dos campos
 jQuery(function($){
-		$("#birth").mask("99/99/9999");
+		/*$("#birth").mask("99/99/9999");*/
 		$("#phone").mask("(99) 9999-9999");
 		$("#cellphone").mask("(99) 99999-9999");
 		$("#zipcode").mask("99999-999");
+		$("#cnpj").mask("99.999.999/9999-99");
 	});
 
 //Respons�vel por realizar a busca do CEP digitado e popular os demais campos de endere�o
@@ -45,12 +46,7 @@ $(function(){
 	                     * Removemos a classe ocultar, para mostrar os campos
 	                     * preenchidos
 	                     */
-	                    boxes.removeClass('ocultar');
-	                 
-	                    //Usamos o m�todo fail, caso n�o retorne nada
 	                }).fail(function(){
-	                 //N�o retornando um valor v�lido, ele mostra a mensagem
-	                 //msgErro.removeClass('ocultar').html('CEP inexistente')
 	            });
 	        }
 	    });
