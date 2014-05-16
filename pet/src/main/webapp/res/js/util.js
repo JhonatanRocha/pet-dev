@@ -22,15 +22,13 @@ $(function(){
 	         */
 	        var cep     = $(this).val().replace(/[^0-9]/, '');
 	        //Armazena a referência da div#boxCampos
-	        var boxes   = $("#boxCampos");
+	        //var boxes   = $("#boxCampos");
 	         //Armazena a referência da div#mensagemErro
-	        var msgErro = $("#mensagemErro");
-	  
+	        //var msgErro = $("#mensagemErro");
 	        //Verifica se não está vazio
 	        if(cep !== ""){
 	             //Cria variável com a URL da consulta, passando o CEP
-	             var url = 'http://cep.correiocontrol.com.br/'+cep+'.json';
-	           
+	             var url = 'http://cep.republicavirtual.com.br/web_cep.php?cep='+cep+'&formato=json';
 	             /**
 	              * Fazemos um requisição a URL, como vamos retornar json,
 	              * usamos o método $.getJSON;
@@ -39,9 +37,10 @@ $(function(){
 	              */
 	             $.getJSON(url, function(json){
 	                    //Atribuimos o valor aos inputs
-	                    $("#street").val(json.logradouro);
-	                    $("#city").val(json.localidade);
+	                    $("#street").val(json.tipo_logradouro + ' '+ json.logradouro);
+	                    $("#city").val(json.cidade);
 	                    $("#state").val(json.uf);
+	                    
 	                    /**
 	                     * Removemos a classe ocultar, para mostrar os campos
 	                     * preenchidos
@@ -51,8 +50,22 @@ $(function(){
 	                    //Usamos o método fail, caso não retorne nada
 	                }).fail(function(){
 	                 //Não retornando um valor válido, ele mostra a mensagem
-	                 msgErro.removeClass('ocultar').html('CEP inexistente')
+	                 //msgErro.removeClass('ocultar').html('CEP inexistente')
 	            });
 	        }
 	    });
+	});
+
+// Responsavel por habilitar e desabilitar fieldset de company na pagina de cadastro
+	$(document).ready(function(){
+	  $("input#isOwner").click(function(){
+	    $("fieldset.companyHidden").hide("slow",function(){
+	    });
+	  });
+	  $( "input#isOfNGO" ).click(function() {
+	    $( "fieldset.companyHidden" ).show( 1500 );
+	  });
+	  $( "input#isOfPetShop" ).click(function() {
+	    $( "fieldset.companyHidden" ).show( 1500 );
+	  });
 	});
