@@ -8,7 +8,7 @@
 </head>
 <body>
     <h2>Página inicial</h2>
-    <p>Bem vindo, ${user.email}</p> 
+    <p>Bem vindo, ${loggedUser.email}</p> 
     <a href="teste">Clique aqui</a>
 </body>
 </html>

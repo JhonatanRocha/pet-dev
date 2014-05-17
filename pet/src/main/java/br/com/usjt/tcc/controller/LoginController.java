@@ -23,10 +23,10 @@ public class LoginController {
 		user.setPassword(HashHelper.sha256(user.getPassword()));
 
 		if (userDao.existeUser(user)) {
-			session.setAttribute("usuarioLogado", user);
+			session.setAttribute("loggedUser", user);
 			return "/menu/initPage";
 		}
-		return "redirect:novoUsuario";
+		return "redirect:";
 	}
 
 }

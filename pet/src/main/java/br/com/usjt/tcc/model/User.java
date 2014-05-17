@@ -35,7 +35,7 @@ public class User {
 	@Column(columnDefinition = "VARCHAR(20)")
 	private String cellphone;
 
-	@DateTimeFormat(pattern="dd/MM/yyyy")
+	@DateTimeFormat(pattern="yyyy-MM-dd")
 	@Column
 	@Temporal(TemporalType.DATE)
 	private Calendar birth;

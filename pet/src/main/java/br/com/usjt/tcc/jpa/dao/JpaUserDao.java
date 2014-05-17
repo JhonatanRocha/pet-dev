@@ -54,11 +54,8 @@ public class JpaUserDao implements UserDao {
 		query.setParameter("pEmail", user.getEmail());
 		query.setParameter("pSenha", user.getPassword());
 
-		if (query.getSingleResult() > 0) {
-			return true;
-		} else {
-			return false;
-		}
+		return (query.getSingleResult() > 0);
+
 	}
 
 }
