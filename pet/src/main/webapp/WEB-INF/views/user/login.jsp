@@ -16,9 +16,9 @@
 			<a class="navbar-brand" href="#">4 Our Lives</a>
 			<div class="pull-right">
 			
-				<form class="navbar-form navbar-left" role="search">
+				<form class="navbar-form navbar-left" action="efetuaLogin" role="search">
 					<div class="form-group">
-						<input type="text" name="login" class="form-control" placeholder="login"> 
+						<input type="text" name="email" class="form-control" placeholder="login"> 
 						<input type="password" name="password" class="form-control" placeholder="Senha">
 					</div>
 					<button type="submit" class="btn btn-primary">Login</button>

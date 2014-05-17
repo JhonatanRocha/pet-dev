@@ -48,14 +48,13 @@ public class JpaUserDao implements UserDao {
 	public boolean existeUser(User user) {
 		TypedQuery<Long> query = entityManager
 				.createQuery(
-						"SELECT COUNT(u) FROM User u WHERE u.email=:pEmail",
+						"SELECT COUNT(u) FROM User u WHERE u.email=:pEmail and u.password=:pSenha",
 						Long.class);
 
 		query.setParameter("pEmail", user.getEmail());
+		query.setParameter("pSenha", user.getPassword());
 
-		Long flag = query.getSingleResult();
-
-		if (flag > 0) {
+		if (query.getSingleResult() > 0) {
 			return true;
 		} else {
 			return false;
