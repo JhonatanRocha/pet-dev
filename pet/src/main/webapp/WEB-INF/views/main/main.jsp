@@ -9,3 +9,5 @@
 <script type="text/javascript" src="${pageContext.servletContext.contextPath}/res/js/jquery.maskedinput.min.js" ></script>
 <script type="text/javascript" src="${pageContext.servletContext.contextPath}/res/js/jquery.maskedinput.js" ></script>
 <script type="text/javascript" src="${pageContext.servletContext.contextPath}/res/js/util.js" ></script>
+<script type="text/javascript" src="${pageContext.servletContext.contextPath}/res/js/bootstrap-file-input.js" ></script>
+<script type="text/javascript" src="${pageContext.servletContext.contextPath}/res/js/jquery.validate.js" ></script>

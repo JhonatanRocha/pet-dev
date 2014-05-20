@@ -16,12 +16,20 @@
 		<nav class="navbar navbar-inverse" role="navigation">
 		 	<a	class="navbar-brand" href="#">4 Our Lives</a> 
 		 </nav>
-		<form id="register" name="register" action="registerUser" method="post">
+		<form id="register" name="register" action="registerUser" method="post" enctype="multipart/form-data">
 
 			<fieldset>
 				<legend>Junte-se a nós</legend>
-
 				<div class="row">
+				
+				    <div class="col-md-10 col-sm-12">
+						<div class="form-group">
+							<img id="uploadPreview" src="../pet/res/images/imageDefault.jpg" width="100" height="100" />
+						</div>
+						<div class="form-group">
+						    <input type="file" id="file"  name="file" title="Adicionar foto" onchange="check_file(); previewImage();" class="btn btn-primary" >
+						</div>
+					</div>
 					<div class="col-md-6 col-sm-12">
 						<div class="form-group">
 							<label for="name">Nome</label> 
@@ -177,5 +185,13 @@
 	</div>
 	
 </body>
+
+<script>
+
+// Altera estilo do botao type file
+$('input[type=file]').bootstrapFileInput();
+$('.file-inputs').bootstrapFileInput();
+
+</script>
 
 </html>

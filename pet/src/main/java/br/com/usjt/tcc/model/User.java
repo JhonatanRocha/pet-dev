@@ -3,11 +3,14 @@ package br.com.usjt.tcc.model;
 import java.util.Calendar;
 import java.util.List;
 
+import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Lob;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
@@ -50,6 +53,18 @@ public class User {
 	private Boolean isOfNGO = false;
 	private Boolean isOfPetShop = false;
 	private Boolean isActivated = true;
+
+	@Lob
+	@Basic(fetch=FetchType.LAZY) 
+	private byte[] photo;
+	
+	public byte[] getFoto() {
+		return photo;
+	}
+
+	public void setFoto(byte[] foto) {
+		this.photo = foto;
+	}
 
 	public Long getId() {
 		return id;

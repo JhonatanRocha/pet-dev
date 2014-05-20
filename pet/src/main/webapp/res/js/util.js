@@ -68,3 +68,82 @@ $(function(){
 	    document.register.action = "registerPetShop";
 	  });
 	});
+	
+	// Funcao para validar o tipo de imagem a ser salva no cadastro
+	function check_file(){
+	    str=document.getElementById('file').value.toUpperCase();
+		suffix=".JPG";
+		suffix2=".JPEG";
+		suffix3 = ".PNG";
+		if(!(str.indexOf(suffix, str.length - suffix.length) !== -1||
+	           str.indexOf(suffix2, str.length - suffix2.length) !== -1||
+	           str.indexOf(suffix3, str.length - suffix3.length) !== -1)){
+			   alert('Tipo de arquivo incorreto,\ O arquivo deve ter uma das extensoes: *.jpg,*.jpeg *.png');
+			   document.getElementById('file').value='';
+		}
+	}
+	
+	// Funcao para fazer reload da foto na pagina
+	function previewImage() {
+	    var oFReader = new FileReader();
+	    oFReader.readAsDataURL(document.getElementById("file").files[0]);
+
+	    oFReader.onload = function (oFREvent) {
+	        document.getElementById("uploadPreview").src = oFREvent.target.result;
+	    };
+	};
+	
+	// Validacao dos campos obrigatorios register.jsp
+	$(document).ready( function() {
+	    $("#register").validate({
+	        // Define as regras
+	        rules:{
+	        	"user.name":{
+	                // campoNome será obrigatório (required) e terá tamanho mínimo (minLength)
+	                required: true, minlength: 2
+	            },
+	            "user.email":{
+	                // campoEmail será obrigatório (required) e precisará ser um e-mail válido (email)
+	                required: true, email: true
+	            },
+	            "user.password":{
+	                // campoEmail será obrigatório (required) e precisará ser um e-mail válido (email)
+	                required: true, email: true
+	            },
+	            confirmPassword:{
+	                // campoMensagem será obrigatório (required) e terá tamanho mínimo (minLength)
+	                required: true, minlength: 2
+	            },
+	            confirmEmail:{
+	                // campoMensagem será obrigatório (required) e terá tamanho mínimo (minLength)
+	                required: true, minlength: 2
+	            }
+	        },
+	        // Define as mensagens de erro para cada regra
+	        messages:{
+	        	"user.name":{
+	                required: "Digite o seu nome",
+	                minLength: "O seu nome deve conter, no mínimo, 2 caracteres"
+	            },
+	            "user.email":{
+	                required: "Digite o seu e-mail para contato",
+	                email: "Digite um e-mail válido",
+	                minLength: "O seu email deve conter, no mínimo, 2 caracteres"
+	            },
+	            "user.password":{
+	                required: "Digite a sua senha",
+	                email: "Digite a sua senha",
+	                minLength: "A sua senha deve conter, no mínimo, 2 caracteres"
+	            },
+	            confirmPassword:{
+	                required: "Confirme a sua senha",
+	                email: "Confirme a sua senha",
+	                minLength: "A sua senha deve conter, no mínimo, 2 caracteres"
+	            },
+	            confirmEmail:{
+	                required: "Confirme seu email",
+	                minLength: "O seu email deve conter, no mínimo, 2 caracteres"
+	            }
+	        }
+	    });
+	});
