@@ -27,7 +27,7 @@
 		<property name="driverClassName" value="com.mysql.jdbc.Driver" />
 		<property name="url" value="jdbc:mysql://localhost/tcc" />
 		<property name="username" value="root" />
-		<property name="password" value="toor" />
+		<property name="password" value="root" />
 	</bean>
 
 	<bean id="entityManagerFactory"
@@ -40,6 +40,12 @@
 
 	<bean id="transactionManager" class="org.springframework.orm.jpa.JpaTransactionManager">
 		<property name="entityManagerFactory" ref="entityManagerFactory" />
+	</bean>
+
+	<!-- Para uso de arquivos anexo no form -->
+	<bean id="multipartResolver"
+		class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+		<property name="maxUploadSize" value="1000000" />
 	</bean>
 
 </beans>
