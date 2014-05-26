@@ -108,7 +108,7 @@ $(function(){
 	            },
 	            "user.password":{
 	                // campoEmail será obrigatório (required) e precisará ser um e-mail válido (email)
-	                required: true, email: true
+	                required: true, minlength: 2
 	            },
 	            confirmPassword:{
 	                // campoMensagem será obrigatório (required) e terá tamanho mínimo (minLength)

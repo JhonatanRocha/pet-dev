@@ -13,16 +13,17 @@ import br.com.usjt.tcc.model.User;
 
 @Controller
 public class LoginController {
-	
+
 	@Autowired
 	UserDao userDao;
 
-	@RequestMapping(value = "/efetuaLogin", method = {RequestMethod.GET})
+	@RequestMapping(value = "/efetuaLogin", method = { RequestMethod.GET })
 	public String efetuaLogin(User user, HttpSession session) {
 
 		user.setPassword(HashHelper.sha256(user.getPassword()));
 
 		if (userDao.existeUser(user)) {
+			user = userDao.buscaPeloEmail(user.getEmail());
 			session.setAttribute("loggedUser", user);
 			return "/menu/initPage";
 		}
