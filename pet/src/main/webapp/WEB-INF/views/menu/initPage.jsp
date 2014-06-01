@@ -8,10 +8,10 @@
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Insert title here</title>
 </head>
-<body>
+<body class="bg-info">
 
+	<c:import url="../main/navbar.jsp" />
 	<div>
-		<c:import url="../main/navbar.jsp" />
 
 		<div class="col-md-2">
 			<h4>${loggedUser.name }</h4>
@@ -19,23 +19,24 @@
 				<img id="uploadPreview" src="../pet/res/images/imageDefault.jpg"
 					width="100" height="100" />
 			</div>
-			
-			<H4>Score: ${loggedUser.score }</H4>
-			
-			<h4>Meus animais</h4>
-			
-			
+
+			<H4>Pontos: ${loggedUser.score }</H4>
+
+			<h4>
+				Meus animais <a href="novoAnimal"><span class="label label-primary">+</span></a>
+			</h4>
+
+
 		</div>
 
-		<div class="col-md-8">
+		<div class="col-md-8 bordered-collum">
 			<h4>Timeline com as informações principais</h4>
 		</div>
 
-		<div class="col-md-2">
+		<div class="col-md-2" bordered-collum>
 			<h4>Anúncios Para Você</h4>
-			
-			Produto x <br>
-			Produto y
+
+			Produto x <br> Produto y
 		</div>
 
 	</div>
