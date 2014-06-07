@@ -26,6 +26,7 @@
 				</div>
 			</div>
 		</div>
+
 		<div class="row">
 			<div class="form-group col-md-2">
 				<label for="name">Nome</label> <input type="text" id="name"
@@ -75,10 +76,12 @@
 
 		<div class="row">
 
-			<div class="checkbox col-md-2">
-				<label> <input type="checkbox" name="dicient" value="true">Possui
-					alguma deficiência?
-				</label>
+			<div class="col-md-2">
+				<div class="checkbox">
+					<label> <input name="deficient" type="checkbox"
+						value="true">Possui alguma deficiência?
+					</label>
+				</div>
 			</div>
 
 			<div class="form-group col-md-4">
@@ -88,26 +91,29 @@
 
 			<div class="form-group col-md-2">
 				<label for="gender">Gênero</label>
-				<div class="checkbox">
-					<div class="pull-left">
+				<div class="radio">
+					<div class="radio-inline">
 						<label> <input type="radio" name="gender" value="M">Macho
-							<input type="radio" name="gender" value="F">Fêmea
+						</label>
+					</div>
+					<div class="radio-inline">
+						<label> <input type="radio" name="gender" value="F">Fêmea
 						</label>
 					</div>
 				</div>
 			</div>
 		</div>
 
-	<div class="row">
-		<input type="submit" class="btn btn-primary" value="Cadastrar">
-	</div>
-
+		<div class="row">
+			<div class="col-md-2">
+				<input type="submit" class="btn btn-primary" value="Cadastrar">
+			</div>
+		</div>
 	</div>
 	<script type="text/javascript">
 		//Altera estilo do botao type file
 		$('input[type=file]').bootstrapFileInput();
 		$('.file-inputs').bootstrapFileInput();
-	</script>
 	</script>
 </body>
 </html>

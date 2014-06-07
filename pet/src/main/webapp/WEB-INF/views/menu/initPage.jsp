@@ -11,34 +11,38 @@
 <body class="bg-info">
 
 	<c:import url="../main/navbar.jsp" />
-	<div>
+	<div class="container">
 
-		<div class="col-md-2">
-			<h4>${loggedUser.name }</h4>
-			<div class="form-group">
-				<img id="uploadPreview" src="../pet/res/images/imageDefault.jpg"
-					width="100" height="100" />
+		<div class="row">
+			<div class="col-md-2">
+				<h4>${loggedUser.name }</h4>
+				<div class="form-group">
+					<img id="uploadPreview" src="../pet/res/images/imageDefault.jpg"
+						width="100" height="100" />
+				</div>
+
+				<H4>Pontos: ${loggedUser.score }</H4>
+
+				<h4>
+					Meus animais <a href="novoAnimal"><span
+						class="label label-primary">+</span></a>
+				</h4>
+
+
 			</div>
 
-			<H4>Pontos: ${loggedUser.score }</H4>
+			<div class="col-md-8 bordered-collum">
+				<h4>Eventos/Notícias</h4>
+				Evento X<br>
+				Evento Y<br>
+			</div>
 
-			<h4>
-				Meus animais <a href="novoAnimal"><span class="label label-primary">+</span></a>
-			</h4>
+			<div class="col-md-2" bordered-collum>
+				<h4>Anúncios Para Você</h4>
 
-
+				Produto x <br> Produto y
+			</div>
 		</div>
-
-		<div class="col-md-8 bordered-collum">
-			<h4>Timeline com as informações principais</h4>
-		</div>
-
-		<div class="col-md-2" bordered-collum>
-			<h4>Anúncios Para Você</h4>
-
-			Produto x <br> Produto y
-		</div>
-
 	</div>
 </body>
 </html>
