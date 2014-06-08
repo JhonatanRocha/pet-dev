@@ -6,9 +6,9 @@
 <head>
 <c:import url="../main/main.jsp" />
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Insert title here</title>
+<title>Página Inicial</title>
 </head>
-<body class="bg-info">
+<body>
 
 	<c:import url="../main/navbar.jsp" />
 	<div class="container">

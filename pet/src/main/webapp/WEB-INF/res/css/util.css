@@ -1,0 +1,22 @@
+.form-button {
+	margin-left: 14px;
+}
+
+label.error {
+	float: none;
+	color: red;
+	margin: 0 .5em 0 0;
+	vertical-align: top;
+	font-size: 10px;
+}
+
+img.logo-image {
+	margin-top: -15px;
+	width: 50px;
+	height: 50px;
+}
+
+body {
+	background-image: ../images/imageDefault.jpg;
+	background-repeat: repeat-y;
+}

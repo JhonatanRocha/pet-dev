@@ -9,23 +9,29 @@
 <title>Login</title>
 </head>
 <body>
-
+	<nav class="navbar navbar-inverse" role="navigation">
 	<div class="container">
+	<div class="navbar-header">
+			<a class="navbar-brand" href="index.html"> <img
+				class="logo-image" src="../pet/res/images/4OurLives-Logo.png"> 
+			</a>
+		</div>
+		<div class="pull-right">
 
-		<nav class="navbar navbar-inverse" role="navigation">
-			<a class="navbar-brand" href="#">4 Our Lives</a>
-			<div class="pull-right">
-			
-				<form class="navbar-form navbar-left" action="efetuaLogin" role="search">
-					<div class="form-group">
-						<input type="text" name="email" class="form-control" placeholder="login"> 
-						<input type="password" name="password" class="form-control" placeholder="Senha">
-					</div>
-					<button type="submit" class="btn btn-primary">Login</button>
-				</form>
-			</div>
-		</nav>
+			<form class="navbar-form navbar-left" action="efetuaLogin"
+				role="search">
+				<div class="form-group">
+					<input type="text" name="email" class="form-control"
+						placeholder="login"> <input type="password"
+						name="password" class="form-control" placeholder="Senha">
+				</div>
+				<button type="submit" class="btn btn-primary">Login</button>
+			</form>
+		</div>
+	</div>
 
+	</nav>
+	<div class="container">
 
 		<div class="row">
 			<div class="col-xs-6">
@@ -61,8 +67,8 @@
 
 							<div class="col-xs-12">
 								<div class="form-group">
-									<label for="email">E-mail</label> 
-									<input type="text" class="form-control" id="email" name="email">
+									<label for="email">E-mail</label> <input type="text"
+										class="form-control" id="email" name="email">
 								</div>
 							</div>
 
@@ -72,15 +78,17 @@
 
 							<div class="col-xs-12">
 								<div class="form-group">
-									<label for="password">Senha</label>
-									<input type="password" class="form-control" id="password" name="password">
+									<label for="password">Senha</label> <input type="password"
+										class="form-control" id="password" name="password">
 								</div>
 							</div>
 
 							<div class="row">
 								<div class="col-xs-4">
 									<div class="form-group">
-										<input type="submit" class="form-control form-button btn btn-success" value="Cadastrar">
+										<input type="submit"
+											class="form-control form-button btn btn-success"
+											value="Cadastrar">
 									</div>
 								</div>
 							</div>

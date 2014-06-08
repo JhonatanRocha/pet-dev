@@ -1,6 +1,17 @@
 <nav class="navbar navbar-inverse" role="navigation">
 	<div class="container">
-		<a class="navbar-brand" href="index.html"> <img class="logo-image"
-			src="../pet/res/images/imageDefault.jpg"> 4 Our Lives</a>
+		<div class="navbar-header">
+			<a class="navbar-brand" href="index.html"> <img
+				class="logo-image" src="../pet/res/images/4OurLives-Logo.png"> 
+			</a>
+		</div>
+
+		<div class="collapse navbar-collapse">
+			<ul class="nav navbar-nav navbar-right">
+				<li><a href="#">Sair</a></li>
+			</ul>
+		</div>
+		<!-- /.navbar-collapse -->
+
 	</div>
 </nav>

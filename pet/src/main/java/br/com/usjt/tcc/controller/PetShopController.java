@@ -28,4 +28,9 @@ public class PetShopController {
 		return "/user/login";
 	}
 
+	@RequestMapping("novoProduto")
+	public String novoProduto() {
+		return "/product/register";
+	}
+
 }
