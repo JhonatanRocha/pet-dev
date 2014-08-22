@@ -5,6 +5,6 @@ import javax.jws.WebService;
 @WebService
 public interface ProductWS {
 	@WebMethod
-	String request (ProductBean[] listTeste);
+	ReturnWS request (String idCompany, ProductBean[] listTeste);
 	
 }
