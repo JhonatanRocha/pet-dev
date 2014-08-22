@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions targetNamespace="http://webservice.tcc.usjt.com.br" xmlns:apachesoap="http://xml.apache.org/xml-soap" xmlns:impl="http://webservice.tcc.usjt.com.br" xmlns:intf="http://webservice.tcc.usjt.com.br" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+<!--WSDL created by Apache Axis version: 1.4
+Built on Apr 22, 2006 (06:55:48 PDT)-->
+ <wsdl:types>
+  <schema elementFormDefault="qualified" targetNamespace="http://webservice.tcc.usjt.com.br" xmlns="http://www.w3.org/2001/XMLSchema">
+   <element name="request">
+    <complexType>
+     <sequence>
+      <element maxOccurs="unbounded" name="listProduct" type="impl:ProductBean"/>
+     </sequence>
+    </complexType>
+   </element>
+   <complexType name="ProductBean">
+    <sequence>
+     <element name="id" nillable="true" type="xsd:long"/>
+     <element name="name" nillable="true" type="xsd:string"/>
+     <element name="price" nillable="true" type="xsd:string"/>
+     <element name="raca" nillable="true" type="xsd:string"/>
+     <element name="score" nillable="true" type="xsd:string"/>
+     <element name="sizeOfPet" nillable="true" type="xsd:string"/>
+     <element name="stage" nillable="true" type="xsd:string"/>
+     <element name="typeOfPet" nillable="true" type="xsd:string"/>
+    </sequence>
+   </complexType>
+   <element name="requestResponse">
+    <complexType>
+     <sequence>
+      <element name="requestReturn" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+  </schema>
+ </wsdl:types>
+
+   <wsdl:message name="requestRequest">
+
+      <wsdl:part element="impl:request" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="requestResponse">
+
+      <wsdl:part element="impl:requestResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:portType name="ProductWSImpl">
+
+      <wsdl:operation name="request">
+
+         <wsdl:input message="impl:requestRequest" name="requestRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:requestResponse" name="requestResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+   </wsdl:portType>
+
+   <wsdl:binding name="ProductWSImplSoapBinding" type="impl:ProductWSImpl">
+
+      <wsdlsoap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+
+      <wsdl:operation name="request">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="requestRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="requestResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+   </wsdl:binding>
+
+   <wsdl:service name="ProductWSImplService">
+
+      <wsdl:port binding="impl:ProductWSImplSoapBinding" name="ProductWSImpl">
+
+         <wsdlsoap:address location="http://localhost:8081/pet/services/ProductWSImpl"/>
+
+      </wsdl:port>
+
+   </wsdl:service>
+
+</wsdl:definitions>
