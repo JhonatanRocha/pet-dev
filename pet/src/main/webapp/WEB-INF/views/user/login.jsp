@@ -19,7 +19,7 @@
 		<div class="pull-right">
 
 			<form class="navbar-form navbar-left" action="efetuaLogin"
-				role="search">
+				role="search" method="post">
 				<div class="form-group">
 					<input type="text" name="email" class="form-control"
 						placeholder="login"> <input type="password"

@@ -17,7 +17,7 @@ public class LoginController {
 	@Autowired
 	UserDao userDao;
 
-	@RequestMapping(value = "/efetuaLogin", method = { RequestMethod.GET })
+	@RequestMapping(value = "/efetuaLogin", method = { RequestMethod.POST })
 	public String efetuaLogin(User user, HttpSession session) {
 
 		user.setPassword(HashHelper.sha256(user.getPassword()));
