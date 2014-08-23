@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -17,8 +18,16 @@
 			<div class="col-md-2">
 				<h4>${loggedUser.name }</h4>
 				<div class="form-group">
-					<img id="uploadPreview" src="../pet/res/images/imageDefault.jpg"
-						width="100" height="100" />
+			
+				<c:choose>
+				    <c:when test="${fn:length(loggedUser.foto) == 0}">
+				        <img id="uploadPreview" src="../pet/res/images/imageDefault.jpg" width="100" height="100" />
+				    </c:when>
+				    <c:otherwise>
+				        <img id="uploadPreview" src="getImageUser/${loggedUser.id}" width="100" height="100" />
+				    </c:otherwise>
+				</c:choose>
+								
 				</div>
 
 				<H4>Pontos: ${loggedUser.score }</H4>

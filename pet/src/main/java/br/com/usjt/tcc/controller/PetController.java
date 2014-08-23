@@ -1,13 +1,11 @@
 package br.com.usjt.tcc.controller;
 
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
-import org.hibernate.Hibernate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -66,12 +64,9 @@ public class PetController {
 		
 		User loggedUser = (User)session.getAttribute("loggedUser");
 		model.addAttribute("loggedUser", loggedUser);
+		List<Pet> pets = loggedUser.getPets();
+		model.addAttribute("pets", pets);
 		
-//		List<Pet> pets = loggedUser.getPets();
-//		
-//		Pet as = pets.get(0);
-//		model.addAttribute("pets", pets);
-//				
 		return "/pet/list";
 	}
 	
@@ -92,19 +87,22 @@ public class PetController {
         pet.setRace(raceDao.busca(pet.getRace().getId()));
         pet.setColor(colorDao.busca(pet.getColor().getId()));
         
-		petDao.adiciona(pet);
-		pet = petDao.busca(pet);
-
-        User loggedUser = (User)session.getAttribute("loggedUser");
         
-        List<Pet> userPets = loggedUser.getPets();	
-        if(!Hibernate.isInitialized(userPets))
-        	userPets = new ArrayList<Pet>();
-		
-        userPets.add(pet);
-		
-        loggedUser.setPets(userPets);
-		userDao.atualiza(loggedUser);
+        User loggedUser = (User)session.getAttribute("loggedUser");
+        pet.setUser(loggedUser);
+        
+		petDao.adiciona(pet);
+//		pet = petDao.busca(pet);
+
+        
+//        List<Pet> userPets = loggedUser.getPets();	
+//        if(!Hibernate.isInitialized(userPets))
+//        	userPets = new ArrayList<Pet>();
+//		
+//        userPets.add(pet);
+//		
+//        loggedUser.setPets(userPets);
+//		userDao.atualiza(loggedUser);
 		
 		return "/menu/initPage";
 	}

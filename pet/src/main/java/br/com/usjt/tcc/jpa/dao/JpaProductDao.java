@@ -14,10 +14,17 @@ import br.com.usjt.tcc.model.Product;
 
 @Repository
 @Transactional
-public class JpaProductPetDao implements ProductDao {
+public class JpaProductDao implements ProductDao {
 
 	@PersistenceContext
 	private EntityManager entityManager;
+	
+	public JpaProductDao(EntityManager entityManager) {
+		this.entityManager = entityManager;
+	}
+	
+	public JpaProductDao() {
+	}
 
 	public void adiciona(Product product) {
 		entityManager.persist(product);

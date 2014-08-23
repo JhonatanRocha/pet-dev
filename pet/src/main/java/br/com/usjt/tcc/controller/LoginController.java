@@ -16,7 +16,8 @@ public class LoginController {
 
 	@Autowired
 	UserDao userDao;
-
+	
+	
 	@RequestMapping(value = "/efetuaLogin", method = { RequestMethod.POST })
 	public String efetuaLogin(User user, HttpSession session) {
 

@@ -1,9 +1,11 @@
 package br.com.usjt.tcc.model;
 
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
 
 import javax.persistence.Basic;
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -43,8 +45,12 @@ public class User {
 	@Temporal(TemporalType.DATE)
 	private Calendar birth;
 
-	@OneToMany
-	private List<Pet> pets;
+	
+	@OneToMany(cascade=CascadeType.ALL, mappedBy="user", fetch = FetchType.EAGER)
+	private List<Pet> pets = new ArrayList<Pet>();
+	
+//	@OneToMany(mappedBy = "user", cascade=CascadeType.ALL)
+//	private List<Pet> pets;
 
 	private int score;
 	

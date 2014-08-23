@@ -7,8 +7,6 @@ import javax.persistence.Id;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
-import br.com.usjt.tcc.enun.Size;
-
 @Entity
 @Table(name = "product")
 public class Product {
@@ -24,7 +22,7 @@ public class Product {
 	private Race raca;
 	private String stage;
 
-	private Size sizeOfPet;
+	private String sizeOfPet;
 	private int score;
 	private Double price;
 
@@ -68,11 +66,11 @@ public class Product {
 		this.stage = stage;
 	}
 
-	public Size getSizeOfPet() {
+	public String getSizeOfPet() {
 		return sizeOfPet;
 	}
 
-	public void setSizeOfPet(Size sizeOfPet) {
+	public void setSizeOfPet(String sizeOfPet) {
 		this.sizeOfPet = sizeOfPet;
 	}
 

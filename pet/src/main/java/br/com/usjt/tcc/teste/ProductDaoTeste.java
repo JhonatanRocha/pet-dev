@@ -5,7 +5,6 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-import br.com.usjt.tcc.enun.Size;
 import br.com.usjt.tcc.interfaces.dao.ProductDao;
 import br.com.usjt.tcc.interfaces.dao.RaceDao;
 import br.com.usjt.tcc.interfaces.dao.TypeDao;
@@ -29,7 +28,7 @@ public class ProductDaoTeste {
 		product.setPrice(new Double(2.2));
 		product.setRaca(raceDao.busca(new Long(1)));
 		product.setScore(2000);
-		product.setSizeOfPet(Size.BIG);
+		product.setSizeOfPet("BIG");
 		product.setStage("Nao sei o q e stage");
 		product.setTypeOfPet(typeDao.busca(new Long(1)));
 		
