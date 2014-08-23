@@ -10,11 +10,13 @@
       <parameter name="className" value="br.com.usjt.tcc.webservice.ProductWSImpl"/>
       <parameter name="wsdlPortType" value="ProductWSImpl"/>
       <parameter name="typeMappingVersion" value="1.2"/>
-      <operation xmlns:operNS="http://webservice.tcc.usjt.com.br" xmlns:retNS="http://webservice.tcc.usjt.com.br" xmlns:rtns="http://www.w3.org/2001/XMLSchema" name="request" qname="operNS:request" returnQName="retNS:requestReturn" returnType="rtns:string" soapAction="">
+      <operation xmlns:operNS="http://webservice.tcc.usjt.com.br" xmlns:retNS="http://webservice.tcc.usjt.com.br" xmlns:rtns="http://webservice.tcc.usjt.com.br" name="request" qname="operNS:request" returnQName="retNS:requestReturn" returnType="rtns:ReturnWS" soapAction="">
+        <parameter xmlns:pns="http://webservice.tcc.usjt.com.br" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:idCompany" type="tns:string"/>
         <parameter xmlns:pns="http://webservice.tcc.usjt.com.br" xmlns:tns="http://webservice.tcc.usjt.com.br" qname="pns:listProduct" type="tns:ProductBean"/>
       </operation>
       <parameter name="allowedMethods" value="request"/>
 
       <typeMapping xmlns:ns="http://webservice.tcc.usjt.com.br" qname="ns:ProductBean" type="java:br.com.usjt.tcc.webservice.ProductBean" serializer="org.apache.axis.encoding.ser.BeanSerializerFactory" deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory" encodingStyle=""/>
+      <typeMapping xmlns:ns="http://webservice.tcc.usjt.com.br" qname="ns:ReturnWS" type="java:br.com.usjt.tcc.webservice.ReturnWS" serializer="org.apache.axis.encoding.ser.BeanSerializerFactory" deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory" encodingStyle=""/>
   </service>
 </deployment>

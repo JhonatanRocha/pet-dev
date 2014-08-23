@@ -7,8 +7,8 @@
   <ns1:parameter name="dotNetSoapEncFix" value="true"/>
   <ns1:parameter name="enableNamespacePrefixOptimization" value="false"/>
   <ns1:parameter name="sendXMLDeclaration" value="true"/>
-  <ns1:parameter name="attachments.implementation" value="org.apache.axis.attachments.AttachmentsImpl"/>
   <ns1:parameter name="sendXsiTypes" value="true"/>
+  <ns1:parameter name="attachments.implementation" value="org.apache.axis.attachments.AttachmentsImpl"/>
   <ns1:requestFlow>
    <ns1:handler type="java:org.apache.axis.handlers.JWSHandler">
     <ns1:parameter name="scope" value="session"/>
@@ -29,7 +29,8 @@
   <ns1:namespace>http://xml.apache.org/axis/wsdd/</ns1:namespace>
  </ns1:service>
  <ns1:service name="ProductWSImpl" provider="java:RPC" style="wrapped" use="literal">
-  <ns2:operation name="request" qname="ns1:request" returnQName="ns1:requestReturn" returnType="xsd:string" soapAction="" xmlns:ns1="http://webservice.tcc.usjt.com.br" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:ns2="http://xml.apache.org/axis/wsdd/">
+  <ns2:operation name="request" qname="ns1:request" returnQName="ns1:requestReturn" returnType="ns1:ReturnWS" soapAction="" xmlns:ns1="http://webservice.tcc.usjt.com.br" xmlns:ns2="http://xml.apache.org/axis/wsdd/">
+   <ns2:parameter qname="ns1:idCompany" type="xsd:string" xmlns:xsd="http://www.w3.org/2001/XMLSchema"/>
    <ns2:parameter qname="ns1:listProduct" type="ns1:ProductBean"/>
   </ns2:operation>
   <ns1:parameter name="allowedMethods" value="request"/>
@@ -41,6 +42,7 @@
   <ns1:parameter name="wsdlTargetNamespace" value="http://webservice.tcc.usjt.com.br"/>
   <ns1:parameter name="wsdlServiceElement" value="ProductWSImplService"/>
   <ns1:typeMapping deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory" encodingStyle="" qname="ns2:ProductBean" serializer="org.apache.axis.encoding.ser.BeanSerializerFactory" type="java:br.com.usjt.tcc.webservice.ProductBean" xmlns:ns2="http://webservice.tcc.usjt.com.br"/>
+  <ns1:typeMapping deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory" encodingStyle="" qname="ns3:ReturnWS" serializer="org.apache.axis.encoding.ser.BeanSerializerFactory" type="java:br.com.usjt.tcc.webservice.ReturnWS" xmlns:ns3="http://webservice.tcc.usjt.com.br"/>
  </ns1:service>
  <ns1:service name="Version" provider="java:RPC">
   <ns1:parameter name="allowedMethods" value="getVersion"/>

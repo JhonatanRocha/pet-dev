@@ -7,17 +7,17 @@ Built on Apr 22, 2006 (06:55:48 PDT)-->
    <element name="request">
     <complexType>
      <sequence>
+      <element name="idCompany" type="xsd:string"/>
       <element maxOccurs="unbounded" name="listProduct" type="impl:ProductBean"/>
      </sequence>
     </complexType>
    </element>
    <complexType name="ProductBean">
     <sequence>
-     <element name="id" nillable="true" type="xsd:long"/>
      <element name="name" nillable="true" type="xsd:string"/>
-     <element name="price" nillable="true" type="xsd:string"/>
+     <element name="price" nillable="true" type="xsd:decimal"/>
      <element name="raca" nillable="true" type="xsd:string"/>
-     <element name="score" nillable="true" type="xsd:string"/>
+     <element name="score" type="xsd:int"/>
      <element name="sizeOfPet" nillable="true" type="xsd:string"/>
      <element name="stage" nillable="true" type="xsd:string"/>
      <element name="typeOfPet" nillable="true" type="xsd:string"/>
@@ -26,10 +26,16 @@ Built on Apr 22, 2006 (06:55:48 PDT)-->
    <element name="requestResponse">
     <complexType>
      <sequence>
-      <element name="requestReturn" type="xsd:string"/>
+      <element name="requestReturn" type="impl:ReturnWS"/>
      </sequence>
     </complexType>
    </element>
+   <complexType name="ReturnWS">
+    <sequence>
+     <element name="code" type="xsd:int"/>
+     <element name="description" nillable="true" type="xsd:string"/>
+    </sequence>
+   </complexType>
   </schema>
  </wsdl:types>
 
@@ -93,7 +99,7 @@ Built on Apr 22, 2006 (06:55:48 PDT)-->
 
       <wsdl:port binding="impl:ProductWSImplSoapBinding" name="ProductWSImpl">
 
-         <wsdlsoap:address location="http://localhost:8081/pet/services/ProductWSImpl"/>
+         <wsdlsoap:address location="http://localhost:8080/pet/services/ProductWSImpl"/>
 
       </wsdl:port>
 
