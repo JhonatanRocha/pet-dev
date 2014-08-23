@@ -13,6 +13,12 @@
 	<c:import url="../main/navbar.jsp" />
 
 	<div class="container">
+	
+	
+	<form id="register" name="register" action="registerPet"
+			method="post" enctype="multipart/form-data">
+	
+	
 		<fieldset>
 			<legend>Novo Animal</legend>
 		</fieldset>
@@ -31,50 +37,57 @@
 
 		<div class="row">
 			<div class="form-group col-md-2">
-				<label for="name">Nome</label> <input type="text" id="name"
-					name="name" class="form-control">
+				<label for="name">Nome</label> 
+				<input type="text" name="name" class="form-control">
 			</div>
 
 			<div class="form-group col-md-2">
-				<label for="size">Porte</label> <select id="size" name="size"
-					class="form-control">
-					<option>Selecione o porte</option>
-					<option>Pequeno</option>
-					<option>Médio</option>
-					<option>Grande</option>
+				<label for="size">Porte</label> 
+				<select name="size" class="form-control">
+					<!--  <option >Selecione o porte</option>-->
+					<option value="SMALL">Pequeno</option>
+					<option value="MID">Médio</option>
+					<option value="BIG">Grande</option>
 				</select>
 			</div>
 
 			<div class="form-group col-md-2">
-				<label for="type">Tipo</label> <select id="type" name="type"
-					class="form-control">
-					<option>Selecione o tipo</option>
-					<option>Cachorro</option>
-					<option>Gato</option>
+				<label for="type">Tipo</label> 
+				<select name="type.id" class="form-control">
+			    	<c:forEach var="typeItem" items="${types}">
+			        	<option value="<c:out value='${typeItem.id}' />">
+			             	<c:out value="${typeItem.description}" />
+			        	</option>
+				    </c:forEach>
 				</select>
 			</div>
 
 			<div class="form-group col-md-2">
-				<label for="breed">Raça</label> <select id="breed" name="breed"
-					class="form-control">
-					<option>Selecione a raça</option>
-					<option>Dálmata</option>
-					<option>Pitbull</option>
+				<label for="race">Raça</label> 
+				<select name="race.id" class="form-control">
+			    	<c:forEach var="raceItem" items="${races}">
+			        	<option value="<c:out value='${raceItem.id}' />">
+			            	<c:out value="${raceItem.description}" />
+			        	</option>
+				    </c:forEach>
 				</select>
 			</div>
 
 			<div class="form-group col-md-2">
-				<label for="color">Cor</label> <select id="color" name="color"
-					class="form-control">
-					<option>Branco</option>
-					<option>Preto</option>
-					<option>Verde</option>
+				<label for="color">Cor</label> 
+				<select name="color.id" class="form-control">
+			    	<c:forEach var="colorItem" items="${colors}">
+			        	<option value="<c:out value='${colorItem.id}' />">
+			            	<c:out value="${colorItem.description}" />
+			        	</option>
+				    </c:forEach>
 				</select>
 			</div>
 
 			<div class="checkbox col-md-2">
-				<label> <input type="checkbox" name="neutered" value="true">É
-					castrado?
+				<label> 
+				<input type="checkbox" name="isNeutered" value="true">
+				É castrado?
 				</label>
 			</div>
 		</div>
@@ -83,26 +96,28 @@
 
 			<div class="col-md-2">
 				<div class="checkbox">
-					<label> <input name="deficient" type="checkbox"
-						value="true">Possui alguma deficiência?
+					<label> 
+					<input name="isDeficient" type="checkbox"	value="true">Possui alguma deficiência?
 					</label>
 				</div>
 			</div>
 
 			<div class="form-group col-md-4">
-				<label for="deficiency">Qual? </label> <input type="text"
-					class="form-control" id="deficiency" name="deficiency">
+				<label for="deficiency">Qual? </label> 
+				<input type="text" class="form-control" name="deficiency">
 			</div>
 
 			<div class="form-group col-md-2">
 				<label for="gender">Gênero</label>
 				<div class="radio">
 					<div class="radio-inline">
-						<label> <input type="radio" name="gender" value="M">Macho
+						<label> 
+							<input type="radio" name="gender" value="M">Macho
 						</label>
 					</div>
 					<div class="radio-inline">
-						<label> <input type="radio" name="gender" value="F">Fêmea
+						<label> 
+							<input type="radio" name="gender" value="F">Fêmea
 						</label>
 					</div>
 				</div>
@@ -112,8 +127,17 @@
 		<div class="row">
 			<div class="col-md-2">
 				<input type="submit" class="btn btn-success" value="Cadastrar">
+				
 			</div>
 		</div>
+		
+		
+		
+		
+		</form>
+		
+		
+		
 	</div>
 	<script type="text/javascript">
 		//Altera estilo do botao type file

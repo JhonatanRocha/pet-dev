@@ -24,9 +24,10 @@
 				<H4>Pontos: ${loggedUser.score }</H4>
 
 				<h4>
-					Meus animais <a href="listPets"><span
-						class="label label-primary">o</span></a>
+					Meus animais <a href="novoAnimal"><span
+						class="label label-primary">+</span></a>
 				</h4>
+
 
 
 			</div>
@@ -35,6 +36,16 @@
 				<h4>Eventos/Notícias</h4>
 				Evento X<br>
 				Evento Y<br>
+				
+				
+				
+				<h4>PAGINA EM DESENVOLVIMENTO: AQUI TERA A LISTA DOS ANIMAIS DO USUARIO LOGADO, PERMITINDO ACESSO A ADIÇÃO DE NOVOS ANIMAIS
+				E ATUALIZACAO DOS QUE ESTIVEREM LISTAVOS. FAAAVOOOOOR NAOOO MEXEEEEER!!!!!</h4>
+				
+				
+				
+				
+				
 			</div>
 
 			<div class="col-md-2" bordered-collum>
