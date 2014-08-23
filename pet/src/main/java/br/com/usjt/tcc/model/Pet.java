@@ -1,14 +1,15 @@
 package br.com.usjt.tcc.model;
 
+import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Lob;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
-
-import br.com.usjt.tcc.enun.Size;
 
 @Entity
 @Table(name = "pet")
@@ -19,7 +20,7 @@ public class Pet {
 	private Long id;
 
 	private String name;
-	private Size size;
+	private String size;
 	private String deficiency;
 
 	@OneToOne
@@ -32,9 +33,13 @@ public class Pet {
 	@Column(columnDefinition = "CHAR(1)")
 	private String gender;
 
+	private Boolean isNeutered;
 	private Boolean isDeficient;
-	private Boolean isCastrated;
-	private String picturePath;
+	
+	@Lob
+	@Basic(fetch=FetchType.LAZY) 
+	private byte[] photo;
+	
 
 	public Long getId() {
 		return id;
@@ -52,11 +57,11 @@ public class Pet {
 		this.name = name;
 	}
 
-	public Size getSize() {
+	public String getSize() {
 		return size;
 	}
 
-	public void setSize(Size size) {
+	public void setSize(String size) {
 		this.size = size;
 	}
 
@@ -100,28 +105,28 @@ public class Pet {
 		this.gender = gender;
 	}
 
+	public byte[] getFoto() {
+		return photo;
+	}
+
+	public void setFoto(byte[] foto) {
+		this.photo = foto;
+	}
+
+	public Boolean getIsNeutered() {
+		return isNeutered;
+	}
+
+	public void setIsNeutered(Boolean isNeutered) {
+		this.isNeutered = isNeutered;
+	}
+
 	public Boolean getIsDeficient() {
 		return isDeficient;
 	}
 
 	public void setIsDeficient(Boolean isDeficient) {
 		this.isDeficient = isDeficient;
-	}
-
-	public Boolean getIsCastrated() {
-		return isCastrated;
-	}
-
-	public void setIsCastrated(Boolean isCastrated) {
-		this.isCastrated = isCastrated;
-	}
-
-	public String getPicturePath() {
-		return picturePath;
-	}
-
-	public void setPicturePath(String picturePath) {
-		this.picturePath = picturePath;
 	}
 
 }

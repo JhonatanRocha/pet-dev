@@ -13,4 +13,6 @@ public interface PetDao {
 	public List<Pet> lista();
 
 	public Pet busca(Long id);
+	
+	public Pet busca(Pet pet);
 }

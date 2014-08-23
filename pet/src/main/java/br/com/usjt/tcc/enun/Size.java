@@ -1,6 +1,8 @@
 package br.com.usjt.tcc.enun;
 
-public enum Size {
+import java.io.Serializable;
+
+public enum Size implements Serializable {
 
 	BIG,
 	MID,

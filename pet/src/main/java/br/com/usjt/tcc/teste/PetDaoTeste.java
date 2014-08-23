@@ -26,11 +26,10 @@ public class PetDaoTeste {
 		Pet pet = new Pet();
 		pet.setDeficiency("Fisica");
 		pet.setGender("M");
-		pet.setIsCastrated(false);
+		pet.setIsDeficient(false);
 		pet.setIsDeficient(true);
 		pet.setName("Bruce");
-		pet.setPicturePath("\fotos\bruce");
-		pet.setSize(Size.BIG);
+		pet.setSize(""+Size.BIG);
 		pet.setRace(raceDao.busca(new Long(1)));
 		pet.setType(typeDao.busca(new Long(1)));
 		pet.setColor(colorDao.busca(new Long(1)));
