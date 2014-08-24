@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -15,42 +15,38 @@
 	<div class="container">
 
 		<div class="row">
-			<div class="col-md-2">
+			<div class="col-md-3">
 				<h4>${loggedUser.name }</h4>
 				<div class="form-group">
-			
-				<c:choose>
-				    <c:when test="${fn:length(loggedUser.foto) == 0}">
-				        <img id="uploadPreview" src="../pet/res/images/imageDefault.jpg" width="100" height="100" />
-				    </c:when>
-				    <c:otherwise>
-				        <img id="uploadPreview" src="getImageUser/${loggedUser.id}" width="100" height="100" />
-				    </c:otherwise>
-				</c:choose>
-								
+
+					<c:choose>
+						<c:when test="${fn:length(loggedUser.foto) == 0}">
+							<img id="uploadPreview" src="../pet/res/images/imageDefault.jpg"
+								width="100" height="100" />
+						</c:when>
+						<c:otherwise>
+							<img id="uploadPreview" src="getImageUser/${loggedUser.id}"
+								width="100" height="100" />
+						</c:otherwise>
+					</c:choose>
+
 				</div>
 
 				<H4>Pontos: ${loggedUser.score }</H4>
 
 				<h4>
-					Meus animais <a href="listPets"><span
-						class="label label-primary">o</span></a>
+					<a href="listPets">Meus animais</a>
 				</h4>
 
 
 			</div>
 
-			<div class="col-md-8 bordered-collum">
+			<div class="col-md-6 bordered-collum">
 				<h4>Eventos/Notícias</h4>
-				Evento X<br>
-				Evento Y<br>
+				Evento X<br> Evento Y<br>
 			</div>
 
-			<div class="col-md-2" bordered-collum>
-				<h4>Anúncios Para Você</h4>
-
-				Produto x <br> Produto y
-			</div>
+			<jsp:include page="../anuncios/anuncios.jsp" />
 		</div>
 	</div>
 </body>
