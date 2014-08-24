@@ -30,22 +30,18 @@
 					</c:choose>
 				</div>
 				<h4 class="text-center">Pontos: ${loggedUser.score }</h4>
-				<div class="well">
-					<div class="list-group">
-						<a href="novoAnimal" class="list-group-item"> Cadastrar Animal</a>
-						<a href="#" class="list-group-item">Opção 1</a> <a href="#"
-							class="list-group-item">Opção 2</a> <a href="#"
-							class="list-group-item">Opção 3</a> <a href="#"
-							class="list-group-item">Opção 4</a>
-					</div>
-				</div>
+				<jsp:include page="../menu/menuLateralEsquerdo.jsp" />
 			</div>
 
 			<div id="painelDeAnimais" class="col-md-6 bordered-collum">
-				<div class="well">
-					<div class="media">
-						<c:forEach var="petItem" items="${pets}">
-							<div class="pull-left"> <c:choose>
+				<div class="panel panel-primary">
+					<c:forEach var="petItem" items="${pets}">
+						<div class="panel-heading">
+							<strong>${petItem.name}</strong>
+						</div>
+						<div class="panel-body">
+							<div class="text-center">
+								<c:choose>
 									<c:when test="${fn:length(petItem.foto) == 0}">
 										<img id="uploadPreview"
 											src="../pet/res/images/noImagemAnimal.jpg" width="200"
@@ -57,10 +53,8 @@
 									</c:otherwise>
 								</c:choose>
 							</div>
-							<div class="media-body">
-								<h4 class="media-heading"></h4>
+							<div class="text-center">
 								<ul class="list-group">
-									<li class="list-group-item"><label><strong>${petItem.name}</strong></label></li>
 									<li class="list-group-item"><label>Porte: </label>
 										${petItem.size}</li>
 									<li class="list-group-item"><label>Tipo: </label>
@@ -76,15 +70,16 @@
 									<li class="list-group-item"><label>Deficiencia: </label>
 										${petItem.deficiency}</li>
 								</ul>
+							</div>
+							<div class="text-right">
 								<button type="button" class="btn btn-info">Editar</button>
 							</div>
-						</c:forEach>
-					</div>
+						</div>
+					</c:forEach>
 				</div>
 			</div>
-
-			<jsp:include page="../anuncios/anuncios.jsp" />
 		</div>
+		<jsp:include page="../anuncios/anuncios.jsp" />
 	</div>
 </body>
 </html>
