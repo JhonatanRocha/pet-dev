@@ -13,4 +13,6 @@ public interface TypeDao {
 	public List<Type> lista();
 
 	public Type busca(Long id);
+
+	public Type busca(String type);
 }

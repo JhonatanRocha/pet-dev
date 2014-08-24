@@ -4,6 +4,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
@@ -17,15 +19,19 @@ public class Product {
 
 	private String name;
 	@OneToOne
-	private Type typeOfPet;
+	private Type type;
 	@OneToOne
-	private Race raca;
+	private Race race;
 	private String stage;
 
-	private String sizeOfPet;
+	private String size;
 	private int score;
 	private Double price;
 
+	@JoinColumn(name="petShop_id", referencedColumnName = "id")
+	@ManyToOne
+	private PetShop petShop;
+	
 	public Long getId() {
 		return id;
 	}
@@ -42,20 +48,20 @@ public class Product {
 		this.name = name;
 	}
 
-	public Type getTypeOfPet() {
-		return typeOfPet;
+	public Type getType() {
+		return type;
 	}
 
-	public void setTypeOfPet(Type typeOfPet) {
-		this.typeOfPet = typeOfPet;
+	public void setType(Type type) {
+		this.type = type;
 	}
 
-	public Race getRaca() {
-		return raca;
+	public Race getRace() {
+		return race;
 	}
 
-	public void setRaca(Race raca) {
-		this.raca = raca;
+	public void setRace(Race race) {
+		this.race = race;
 	}
 
 	public String getStage() {
@@ -66,12 +72,12 @@ public class Product {
 		this.stage = stage;
 	}
 
-	public String getSizeOfPet() {
-		return sizeOfPet;
+	public String getSize() {
+		return size;
 	}
 
-	public void setSizeOfPet(String sizeOfPet) {
-		this.sizeOfPet = sizeOfPet;
+	public void setSize(String size) {
+		this.size = size;
 	}
 
 	public int getScore() {
@@ -88,6 +94,14 @@ public class Product {
 
 	public void setPrice(Double price) {
 		this.price = price;
+	}
+
+	public PetShop getPetShop() {
+		return petShop;
+	}
+
+	public void setPetShop(PetShop petShop) {
+		this.petShop = petShop;
 	}
 
 }

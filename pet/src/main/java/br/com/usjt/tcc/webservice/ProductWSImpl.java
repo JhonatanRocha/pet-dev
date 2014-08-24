@@ -39,11 +39,11 @@ public class ProductWSImpl implements ProductWS  {
 				product.setPrice(s.getPrice().doubleValue());
 				product.setScore(s.getScore());
 				product.setStage(s.getStage());
-				product.setSizeOfPet(""+Size.valueOf(s.getSizeOfPet()));
+				product.setSize(""+Size.valueOf(s.getSizeOfPet()));
 				type.setDescription(s.getTypeOfPet());
-				product.setTypeOfPet(type);
+				product.setType(type);
 				race.setDescription(s.getRaca());
-				product.setRaca(race);
+				product.setRace(race);
 				//this.productDao = getWebApplicationContext().getBean("accountService");
 				//productDao.adiciona(product);
 				dao.adiciona(product);

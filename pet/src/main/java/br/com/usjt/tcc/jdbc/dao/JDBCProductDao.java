@@ -29,10 +29,10 @@ public class JDBCProductDao implements ProductDao {
 			stmt.setString(1, product.getName());
 			stmt.setDouble(2, product.getPrice());
 			stmt.setLong(3, product.getScore());
-			stmt.setString(4, product.getSizeOfPet());
+			stmt.setString(4, product.getSize());
 			stmt.setString(5, product.getStage());
-			stmt.setLong(6, product.getRaca().getId());
-			stmt.setLong(7, product.getTypeOfPet().getId());
+			stmt.setLong(6, product.getRace().getId());
+			stmt.setLong(7, product.getType().getId());
 
 			stmt.execute();
 			stmt.close();

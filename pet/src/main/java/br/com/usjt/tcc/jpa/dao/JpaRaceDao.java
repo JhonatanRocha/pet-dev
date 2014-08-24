@@ -5,6 +5,7 @@ import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
+import javax.persistence.TypedQuery;
 import javax.transaction.Transactional;
 
 import org.springframework.stereotype.Repository;
@@ -38,7 +39,7 @@ public class JpaRaceDao implements RaceDao{
 	}
 
 	@SuppressWarnings("unchecked")
-	public List<Race> buscaPelaDescricao(String description) {
+	public List<Race> buscaListaPelaDescricao(String description) {
 		Query query = entityManager
 				.createQuery("select r from Race r where r.description=:pDescription");
 
@@ -46,4 +47,21 @@ public class JpaRaceDao implements RaceDao{
 
 		return query.getResultList();
 	}
+
+	@Override
+	public List<Race> buscaPelaDescricao(String description) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Race busca(String race) {
+	
+		TypedQuery<Race> query = entityManager
+				.createQuery("select r from Race r where r.description=:pDescription",	Race.class);
+		query.setParameter("pDescription", race);
+	
+		return  query.getSingleResult();
+	}
+	
 }

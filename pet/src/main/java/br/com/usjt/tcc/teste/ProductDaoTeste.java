@@ -26,11 +26,11 @@ public class ProductDaoTeste {
 		Product product = new Product();
 		product.setName("Shampoo");
 		product.setPrice(new Double(2.2));
-		product.setRaca(raceDao.busca(new Long(1)));
+		product.setRace(raceDao.busca(new Long(1)));
 		product.setScore(2000);
-		product.setSizeOfPet("BIG");
+		product.setSize("BIG");
 		product.setStage("Nao sei o q e stage");
-		product.setTypeOfPet(typeDao.busca(new Long(1)));
+		product.setType(typeDao.busca(new Long(1)));
 		
 // TESTES:
 		// CREATE
@@ -42,7 +42,7 @@ public class ProductDaoTeste {
 			
 		// UPDATE
 		productAux.setPrice(new Double(1.8));
-		productAux.setRaca(raceDao.busca(new Long(1)));;
+		productAux.setRace(raceDao.busca(new Long(1)));;
 		productDao.atualiza(productAux);
 		
 		// List

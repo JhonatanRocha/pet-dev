@@ -14,4 +14,6 @@ public interface RaceDao {
 	public Race busca(Long id);
 
 	public List<Race> buscaPelaDescricao(String description);
+
+	public Race busca(String race);
 }
