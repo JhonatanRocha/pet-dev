@@ -38,6 +38,7 @@ public class UserController {
 
 	@RequestMapping("registerUser")
 	public String registerUser(RegisterNest registerNest, HttpServletRequest request) {
+		String retorno = null;
 		User user = registerNest.getUser();
 		MultipartHttpServletRequest multipartRequest = (MultipartHttpServletRequest) request;
         MultipartFile file =  multipartRequest.getFile("file");
@@ -49,9 +50,15 @@ public class UserController {
 		user.setPassword(HashHelper.sha256(user.getPassword()));
 		user.setCellphone(user.getCellphone().replaceAll("\\D", ""));  
 		user.setPhone(user.getPhone().replaceAll("\\D", ""));
+		User existeUser = userDao.buscaPeloEmail(user.getEmail());
 		
-		userDao.adiciona(user);
-	
-		return "user/login";
+		if(existeUser != null){
+			request.setAttribute("existeUser", true);
+			retorno = "user/register";
+		}else{
+			userDao.adiciona(user);
+			retorno = "user/login";
+		}
+		return retorno;
 	}
 }

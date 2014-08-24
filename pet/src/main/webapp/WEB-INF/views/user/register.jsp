@@ -43,7 +43,7 @@
 					</div>
 					<div class="col-md-6 col-sm-12">
 						<div class="form-group">
-							<label for="name">Nome</label> <input type="text"
+							<label for="name">Nome*</label> <input type="text"
 								class="form-control" id="user.name" name="user.name"
 								placeholder="Digite seu nome completo...">
 						</div>
@@ -189,6 +189,10 @@
 
 			</fieldset>
 
+			<c:if test="${existeUser}">
+			   <p style="font-size:17px; color: red;">Usuário já cadastrado em nosso sistema !!!</p>
+			</c:if>
+			
 			<div class="row" id="Cadastrar">
 				<div class="row">
 					<div class="col-md-2 col-sm-12">
