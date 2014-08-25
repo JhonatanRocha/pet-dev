@@ -59,6 +59,15 @@
 			</div>
 
 			<div class="col-xs-4 col-xs-offset-2">
+			
+			<c:if test="${erroLogin}">
+			   <p style="font-size:17px; color: red;">Usuário e/ou senha inválida !!!</p>
+			</c:if>
+			
+			<c:if test="${erroSistema}">
+			   <p style="font-size:17px; color: red;">Sistema temporáriamente indisponivel !!!</p>
+			</c:if>
+			
 				<form action="novoUsuario" method="post">
 					<fieldset>
 						<legend> Abra uma conta e junte-se a nós</legend>

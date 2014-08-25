@@ -25,7 +25,7 @@
 		<div class="row">
 			<div class="col-md-10 col-sm-12">
 				<div class="form-group">
-					<img id="uploadPreview" src="../pet/res/images/imageDefault.jpg"
+					<img id="uploadPreview" src="../pet/res/images/noImagemAnimal.jpg"
 						width="100" height="100" />
 				</div>
 				<div class="form-group">
@@ -131,12 +131,7 @@
 			</div>
 		</div>
 		
-		
-		
-		
-		</form>
-		
-		
+	</form>
 		
 	</div>
 	<script type="text/javascript">

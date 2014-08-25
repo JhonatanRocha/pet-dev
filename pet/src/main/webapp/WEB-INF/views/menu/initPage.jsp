@@ -12,43 +12,31 @@
 <body>
 
 	<c:import url="../main/navbar.jsp" />
-	<div class="container">
+	
+	<div class="container-fluid">
 
 		<div class="row">
 			<div class="col-md-3">
-				<h4>${loggedUser.name }</h4>
-				<div class="form-group">
-
-					<c:choose>
-						<c:when test="${fn:length(loggedUser.foto) == 0}">
-							<img id="uploadPreview" src="../pet/res/images/imageDefault.jpg"
-								width="100" height="100" />
-						</c:when>
-						<c:otherwise>
-							<img id="uploadPreview" src="getImageUser/${loggedUser.id}"
-								width="100" height="100" />
-						</c:otherwise>
-					</c:choose>
-
-				</div>
-
-				<H4>Pontos: ${loggedUser.score }</H4>
-
-				<h4>
-					<a href="listPets">Meus animais</a><br>
-					<a href="editarUsuario">Alterar Meus dados</a>
-				</h4>
-
-
+				<jsp:include page="../menu/menuLateralEsquerdo.jsp" />
 			</div>
 
 			<div class="col-md-6 bordered-collum">
 				<h4>Eventos/Notícias</h4>
-				Evento X<br> Evento Y<br>
+					Evento X<br> Evento Y<br>
 			</div>
-
+		
 			<jsp:include page="../anuncios/anuncios.jsp" />
 		</div>
 	</div>
+		
+	
+	<!-- Menu Toggle Script -->
+    <script>
+    $("#menu-toggle").click(function(e) {
+        e.preventDefault();
+        $("#wrapper").toggleClass("toggled");
+    });
+    </script>
+    
 </body>
 </html>
