@@ -50,9 +50,8 @@ public class UserController {
 		user.setPassword(HashHelper.sha256(user.getPassword()));
 		user.setCellphone(user.getCellphone().replaceAll("\\D", ""));  
 		user.setPhone(user.getPhone().replaceAll("\\D", ""));
-		User existeUser = userDao.buscaPeloEmail(user.getEmail());
 		
-		if(existeUser != null){
+		if(userDao.buscaUserEmail(user.getEmail())){
 			request.setAttribute("existeUser", true);
 			retorno = "user/register";
 		}else{

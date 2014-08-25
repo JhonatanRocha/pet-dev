@@ -11,5 +11,6 @@ public interface UserDao {
 	public List<User> lista();
 	public User busca(Long id);
 	public User buscaPeloEmail(String email);
+	public boolean buscaUserEmail(String email);
 	public boolean existeUser(User user);
 }
