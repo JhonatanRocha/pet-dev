@@ -35,7 +35,8 @@
 				<H4>Pontos: ${loggedUser.score }</H4>
 
 				<h4>
-					<a href="listPets">Meus animais</a>
+					<a href="listPets">Meus animais</a><br>
+					<a href="editarUsuario">Alterar Meus dados</a>
 				</h4>
 
 

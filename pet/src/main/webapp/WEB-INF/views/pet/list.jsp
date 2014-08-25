@@ -78,8 +78,9 @@
 					</c:forEach>
 				</div>
 			</div>
+			<jsp:include page="../anuncios/anuncios.jsp" />
 		</div>
-		<jsp:include page="../anuncios/anuncios.jsp" />
+		
 	</div>
 </body>
 </html>

@@ -60,4 +60,16 @@ public class UserController {
 		}
 		return retorno;
 	}
+	
+	@RequestMapping("editarUsuario")
+	public String editUser() {
+		
+		return "/user/editUser";
+	}
+	@RequestMapping("alterUser")
+	public String alterUser(RegisterNest registerNest, HttpServletRequest request) {
+		userDao.atualiza(registerNest.getUser());
+		return "/menu/initPage";
+	}
+	
 }
