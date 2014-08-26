@@ -8,7 +8,7 @@
 
 		<div class="collapse navbar-collapse">
 			<ul class="nav navbar-nav navbar-right">
-				<li><a href="${pageContext.servletContext.contextPath}">Sair</a></li>
+				<li><a href="efetuaLogout">Sair</a></li>
 			</ul>
 		</div>
 		<!-- /.navbar-collapse -->

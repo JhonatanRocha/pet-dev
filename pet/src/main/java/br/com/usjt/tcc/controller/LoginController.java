@@ -1,5 +1,6 @@
 package br.com.usjt.tcc.controller;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -39,6 +40,15 @@ public class LoginController {
 			e.printStackTrace();
 		}
 		return "redirect:";
+	}
+	
+	@RequestMapping(value ="/efetuaLogout")
+	public String efetuaLogout(HttpServletRequest request) {
+		HttpSession session = request.getSession(false);
+		if(session != null)
+		    session.invalidate();
+		
+        return "/user/login";
 	}
 
 }
