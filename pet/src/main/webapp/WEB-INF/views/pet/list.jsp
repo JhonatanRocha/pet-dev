@@ -5,7 +5,6 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-
 <c:import url="../main/main.jsp" />
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Página Inicial</title>
@@ -13,7 +12,6 @@
 <body>
 
 	<c:import url="../main/navbar.jsp" />
-	<div class="page-content-wrapper">
 	<div class="container-fluid">
 
 		<div class="row">
@@ -65,20 +63,10 @@
 						</div>
 					</c:forEach>
 				</div>
-				<a href="#menu-toggle" class="btn btn-default" id="menu-toggle">Toggle Menu</a>
 			</div>
-			
 			<jsp:include page="../anuncios/anuncios.jsp" />
 		</div>
-		</div>
+		
 	</div>
-	<!-- Menu Toggle Script -->
-    <script>
-    $("#menu-toggle").click(function(e) {
-        e.preventDefault();
-        $("#wrapper").toggleClass("toggled");
-    });
-    </script>
-    
 </body>
 </html>
