@@ -16,10 +16,21 @@
 	<div class="container-fluid">
 
 		<div class="row">
+		
 			<div class="col-md-3">
-				<jsp:include page="../menu/menuLateralEsquerdo.jsp" />
+				<c:choose>
+				    <c:when test="${loggedUser.isOfPetShop}">
+				       <jsp:include page="../menu/menuLateralEsquerdoPetShop.jsp" />
+				    </c:when>
+				    <c:when test="${loggedUser.isOfNGO}">
+				         <jsp:include page="../menu/menuLateralEsquerdoNGO.jsp" />
+				    </c:when>
+				    <c:otherwise>
+				        <jsp:include page="../menu/menuLateralEsquerdo.jsp" />
+				    </c:otherwise>
+				</c:choose>
 			</div>
-
+			
 			<div class="col-md-6 bordered-collum">
 				<h4>Eventos/Notícias</h4>
 					Evento X<br> Evento Y<br>

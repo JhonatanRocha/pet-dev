@@ -54,7 +54,7 @@ public class User {
 
 	private int score;
 	
-	@OneToOne
+	@OneToOne(cascade = {CascadeType.ALL})
 	private Address address;
 	private Boolean isOfNGO = false;
 	private Boolean isOfPetShop = false;

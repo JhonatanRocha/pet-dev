@@ -3,6 +3,7 @@ package br.com.usjt.tcc.controller;
 import java.io.IOException;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -39,17 +40,8 @@ public class UserController {
 	@RequestMapping("registerUser")
 	public String registerUser(RegisterNest registerNest, HttpServletRequest request) {
 		String retorno = null;
-		User user = registerNest.getUser();
-		MultipartHttpServletRequest multipartRequest = (MultipartHttpServletRequest) request;
-        MultipartFile file =  multipartRequest.getFile("file");
-        try {
-			user.setFoto(file.getBytes());
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-		user.setPassword(HashHelper.sha256(user.getPassword()));
-		user.setCellphone(user.getCellphone().replaceAll("\\D", ""));  
-		user.setPhone(user.getPhone().replaceAll("\\D", ""));
+		
+		User user = populatedUser(registerNest, request, false);
 		
 		if(userDao.buscaUserEmail(user.getEmail())){
 			request.setAttribute("existeUser", true);
@@ -58,6 +50,7 @@ public class UserController {
 			userDao.adiciona(user);
 			retorno = "user/login";
 		}
+		
 		return retorno;
 	}
 	
@@ -66,10 +59,50 @@ public class UserController {
 		
 		return "/user/editUser";
 	}
+	
 	@RequestMapping("alterUser")
-	public String alterUser(RegisterNest registerNest, HttpServletRequest request) {
+	public String alterUser(RegisterNest registerNest, HttpSession session, HttpServletRequest request) {
+		
+		User userLogged = (User) session.getAttribute("loggedUser");
+		boolean isFoto = false;
+		
+		if(registerNest.getUser().getFoto() == null){
+			registerNest.getUser().setFoto(userLogged.getFoto());
+			isFoto = true;
+		}
+		
+		User user = populatedUser(registerNest, request, isFoto);
+		
+		user.setId(userLogged.getId());
+		userDao.atualiza(user);
+		
+		session.setAttribute("loggedUser", user);
+		
+		return "/menu/initPage";
+	}
+	
+	@RequestMapping("deactivateUser")
+	public String deactivateUser(RegisterNest registerNest, HttpServletRequest request) {
 		userDao.atualiza(registerNest.getUser());
 		return "/menu/initPage";
+	}
+	
+	private User populatedUser(RegisterNest registerNest, HttpServletRequest request, boolean isFoto){
+		
+		User user = registerNest.getUser();
+		MultipartHttpServletRequest multipartRequest = (MultipartHttpServletRequest) request;
+        MultipartFile file =  multipartRequest.getFile("file");
+        
+        try {
+			user.setFoto(file.getBytes());
+			user.setPassword(HashHelper.sha256(user.getPassword()));
+			user.setCellphone(user.getCellphone().replaceAll("\\D", ""));  
+			user.setPhone(user.getPhone().replaceAll("\\D", ""));
+        } catch (IOException e) {
+			e.printStackTrace();
+		}
+        
+		return user;
 	}
 	
 }

@@ -17,14 +17,11 @@
 				</c:choose>
 				<h4 class="sidebar-brand">Pontos: ${loggedUser.score }</h4>
 			</div>
-		
-		<a href="listPets" class="list-group-item">Meus animais</a>
-		<a href="novoAnimal" class="list-group-item"> Cadastrar Animal </a>
-		<a href="#"	class="list-group-item">Alterar meus animais</a> 
+			
 		<a href="editarUsuario" class="list-group-item">Alterar Meus dados</a>
-		<a href="#"	class="list-group-item">Desativar conta</a>
-		<a href="#"	class="list-group-item">Adotar</a> 
-		<a href="#"	class="list-group-item">Opção 1</a>
-		<a href="#"	class="list-group-item">Opção 2</a>
+		<a href="#" class="list-group-item">Adicionar Produto</a>
+		<a href="#" class="list-group-item">Alterar Produto</a>
+		<a href="#"	class="list-group-item">Excluir Produto</a> 
+		<a href="editarUsuario" class="list-group-item">XXXXX</a>
 	</div>
 </div>
