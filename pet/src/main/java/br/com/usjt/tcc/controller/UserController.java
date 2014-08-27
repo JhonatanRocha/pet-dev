@@ -41,7 +41,7 @@ public class UserController {
 	public String registerUser(RegisterNest registerNest, HttpServletRequest request) {
 		String retorno = null;
 		
-		User user = populatedUser(registerNest, request, false);
+		User user = populatedUser(registerNest, request);
 		
 		if(userDao.buscaUserEmail(user.getEmail())){
 			request.setAttribute("existeUser", true);
@@ -64,14 +64,7 @@ public class UserController {
 	public String alterUser(RegisterNest registerNest, HttpSession session, HttpServletRequest request) {
 		
 		User userLogged = (User) session.getAttribute("loggedUser");
-		boolean isFoto = false;
-		
-		if(registerNest.getUser().getFoto() == null){
-			registerNest.getUser().setFoto(userLogged.getFoto());
-			isFoto = true;
-		}
-		
-		User user = populatedUser(registerNest, request, isFoto);
+		User user = populatedUser(registerNest, request);
 		
 		user.setId(userLogged.getId());
 		userDao.atualiza(user);
@@ -87,7 +80,7 @@ public class UserController {
 		return "/menu/initPage";
 	}
 	
-	private User populatedUser(RegisterNest registerNest, HttpServletRequest request, boolean isFoto){
+	private User populatedUser(RegisterNest registerNest, HttpServletRequest request){
 		
 		User user = registerNest.getUser();
 		MultipartHttpServletRequest multipartRequest = (MultipartHttpServletRequest) request;
