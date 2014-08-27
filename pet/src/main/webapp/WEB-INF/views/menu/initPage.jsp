@@ -32,22 +32,15 @@
 			</div>
 			
 			<div class="col-md-6 bordered-collum">
-				<h4>Eventos/Notícias</h4>
+				<h2>Eventos/Notícias</h2>
 					Evento X<br> Evento Y<br>
+					
+					<jsp:include page="carousel.jsp" />
 			</div>
-		
+			
 			<jsp:include page="../anuncios/anuncios.jsp" />
 		</div>
 	</div>
 		
-	
-	<!-- Menu Toggle Script -->
-    <script>
-    $("#menu-toggle").click(function(e) {
-        e.preventDefault();
-        $("#wrapper").toggleClass("toggled");
-    });
-    </script>
-    
 </body>
 </html>

@@ -3,7 +3,7 @@
 
 <div class="well" style="width: 250px;">
 	<div class="list-group">
-		<li class="sidebar-brand">${loggedUser.name }</li>
+		<h4 class="sidebar-brand">${loggedUser.name }</h4>
 			<div class="text-center">
 				<c:choose>
 					<c:when test="${fn:length(loggedUser.foto) == 0}">
