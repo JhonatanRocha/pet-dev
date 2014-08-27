@@ -75,9 +75,14 @@ public class UserController {
 	}
 	
 	@RequestMapping("deactivateUser")
-	public String deactivateUser(RegisterNest registerNest, HttpServletRequest request) {
-		userDao.atualiza(registerNest.getUser());
-		return "/menu/initPage";
+	public String deactivateUser(HttpSession session) {
+		
+		User userLogged = (User) session.getAttribute("loggedUser");
+		userLogged.setIsActivated(false);
+		userDao.atualiza(userLogged);
+		session.invalidate();
+		
+		return "/user/login";
 	}
 	
 	private User populatedUser(RegisterNest registerNest, HttpServletRequest request){

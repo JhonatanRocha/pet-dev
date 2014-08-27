@@ -21,16 +21,22 @@ public class LoginController {
 	
 	@RequestMapping(value = "/efetuaLogin", method = { RequestMethod.POST })
 	public String efetuaLogin(User user, HttpSession session) {
-
+		
 		try {
 			user.setPassword(HashHelper.sha256(user.getPassword()));
 
 			if (userDao.existeUser(user)) {
 				user = userDao.buscaPeloEmail(user.getEmail());
-				session.setAttribute("loggedUser", user);
-				session.setAttribute("erroLogin", false);
-				session.setAttribute("erroSistema", false);
-				return "/menu/initPage";
+				
+				if(user.getIsActivated()){
+					session.setAttribute("loggedUser", user);
+					session.setAttribute("erroLogin", false);
+					session.setAttribute("erroSistema", false);
+					return "/menu/initPage";
+				}else{
+					session.setAttribute("erroLogin", true);
+					session.setAttribute("erroSistema", false);
+				}
 			}else{
 				session.setAttribute("erroLogin", true);
 				session.setAttribute("erroSistema", false);

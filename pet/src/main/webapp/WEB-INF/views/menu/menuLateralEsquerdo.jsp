@@ -21,8 +21,8 @@
 		<a href="listPets" class="list-group-item">Meus animais</a>
 		<a href="novoAnimal" class="list-group-item"> Cadastrar Animal </a>
 		<a href="#"	class="list-group-item">Alterar meus animais</a> 
-		<a href="editarUsuario" class="list-group-item">Alterar Meus dados</a>
-		<a href="#"	class="list-group-item">Desativar conta</a>
+		<a href="editarUsuario" class="list-group-item">Alterar meus dados</a>
+		<a href="deactivateUser" class="list-group-item">Desativar conta</a>
 		<a href="#"	class="list-group-item">Adotar</a> 
 		<a href="#"	class="list-group-item">Opção 1</a>
 		<a href="#"	class="list-group-item">Opção 2</a>

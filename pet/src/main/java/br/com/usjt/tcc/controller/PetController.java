@@ -74,7 +74,6 @@ public class PetController {
 	@RequestMapping("registerPet")
 	public String registerPet(Pet pet, HttpServletRequest request, HttpSession session) {
 		
-		System.out.println("registerPEt");
 		MultipartHttpServletRequest multipartRequest = (MultipartHttpServletRequest) request;
         MultipartFile file =  multipartRequest.getFile("file");
         try {
@@ -87,22 +86,11 @@ public class PetController {
         pet.setRace(raceDao.busca(pet.getRace().getId()));
         pet.setColor(colorDao.busca(pet.getColor().getId()));
         
-        
         User loggedUser = (User)session.getAttribute("loggedUser");
         pet.setUser(loggedUser);
         
 		petDao.adiciona(pet);
-//		pet = petDao.busca(pet);
-
-        
-//        List<Pet> userPets = loggedUser.getPets();	
-//        if(!Hibernate.isInitialized(userPets))
-//        	userPets = new ArrayList<Pet>();
-//		
-//        userPets.add(pet);
-//		
-//        loggedUser.setPets(userPets);
-//		userDao.atualiza(loggedUser);
+		loggedUser.getPets().add(pet);
 		
 		return "/menu/initPage";
 	}
