@@ -7,7 +7,7 @@
 <head>
 <c:import url="../main/main.jsp" />
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Página Inicial</title>
+<title>PÃ¡gina Inicial</title>
 </head>
 <body>
 
@@ -45,7 +45,7 @@
 										${petItem.size}</li>
 									<li class="list-group-item"><label>Tipo: </label>
 										${petItem.type.description}</li>
-									<li class="list-group-item"><label>Raça: </label>
+									<li class="list-group-item"><label>RaÃ§a: </label>
 										${petItem.race.description}</li>
 									<li class="list-group-item"><label>Cor: </label>
 										${petItem.color.description}</li>
@@ -58,7 +58,12 @@
 								</ul>
 							</div>
 							<div class="text-right">
-								<button type="button" class="btn btn-info">Editar</button>
+								<form class="navbar-form navbar-left" action="editPet">
+									<button type="submit" class="btn btn-info">Editar</button>
+								</form>
+								<form class="navbar-form navbar-left" action="deletePet">
+									<button type="submit" class="btn btn-info">Excluir</button>
+								</form>
 							</div>
 						</div>
 					</c:forEach>

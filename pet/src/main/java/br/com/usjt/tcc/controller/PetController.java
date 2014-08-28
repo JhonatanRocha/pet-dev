@@ -95,4 +95,20 @@ public class PetController {
 		return "/menu/initPage";
 	}
 	
+	@RequestMapping("editPet")
+	public String editPet(Pet pet, HttpSession session) {
+		
+		System.out.println("TesteEdiPet");
+		
+		return "/pet/editPet";
+	}
+	
+	@RequestMapping("deletePet")
+	public String deletePet(Model model, HttpSession session) {
+		
+		System.out.println("DeletePet");
+		
+		return "/pet/list";
+	}
+	
 }
