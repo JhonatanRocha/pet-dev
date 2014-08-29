@@ -9,6 +9,8 @@ public class ProductVO {
 	private String size;
 	private Integer score;
 	private Double price;
+	private String linkPhoto;
+	private String linkAnuncio;
 
 	public String getName() {
 		return name;
@@ -64,5 +66,21 @@ public class ProductVO {
 
 	public void setPrice(Double price) {
 		this.price = price;
+	}
+
+	public String getLinkPhoto() {
+		return linkPhoto;
+	}
+
+	public void setLinkPhoto(String linkPhoto) {
+		this.linkPhoto = linkPhoto;
+	}
+
+	public String getLinkAnuncio() {
+		return linkAnuncio;
+	}
+
+	public void setLinkAnuncio(String linkAnuncio) {
+		this.linkAnuncio = linkAnuncio;
 	}
 }

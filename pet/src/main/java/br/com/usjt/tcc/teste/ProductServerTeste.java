@@ -66,6 +66,8 @@ public class ProductServerTeste {
 		product.setSize("grande1");
 		product.setScore(111);
 		product.setPrice(11.2);
+		product.setLinkAnuncio("http://www.petvirtual.com.br/poleiro-papagaio-triplex-02200/p");
+		product.setLinkPhoto("http://www.petvirtual.com.br/arquivos/ids/157063-900-900/02200.jpg?v=635110395550100000");
 
 		ProductVO product2 = new ProductVO();
 		product2.setName("prod2");
@@ -75,7 +77,9 @@ public class ProductServerTeste {
 		product2.setSize("pequena2");
 		product2.setScore(222);
 		product2.setPrice(22.2);
-
+		product2.setLinkAnuncio("http://www.petvirtual.com.br/calcio-bloco-natural-c--20-und--03532/p");
+		product2.setLinkPhoto("http://www.petvirtual.com.br/arquivos/ids/161216-900-900/Calcio-Bloco---www.petvirtual.com.br.jpg?v=635361112602430000");
+		
 		List<ProductVO> productVOs = new ArrayList<ProductVO>();
 		productVOs.add(product);
 		productVOs.add(product2);

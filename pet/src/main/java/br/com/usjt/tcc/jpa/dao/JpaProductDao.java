@@ -11,6 +11,7 @@ import org.springframework.stereotype.Repository;
 
 import br.com.usjt.tcc.interfaces.dao.ProductDao;
 import br.com.usjt.tcc.model.Product;
+import br.com.usjt.tcc.model.User;
 
 @Repository
 @Transactional

@@ -32,6 +32,9 @@ public class Product {
 	@ManyToOne
 	private PetShop petShop;
 	
+	private String linkPhoto;
+	private String linkAnuncio;
+	
 	public Long getId() {
 		return id;
 	}
@@ -102,6 +105,22 @@ public class Product {
 
 	public void setPetShop(PetShop petShop) {
 		this.petShop = petShop;
+	}
+
+	public String getLinkPhoto() {
+		return linkPhoto;
+	}
+
+	public void setLinkPhoto(String linkPhoto) {
+		this.linkPhoto = linkPhoto;
+	}
+
+	public String getLinkAnuncio() {
+		return linkAnuncio;
+	}
+
+	public void setLinkAnuncio(String linkAnuncio) {
+		this.linkAnuncio = linkAnuncio;
 	}
 
 }

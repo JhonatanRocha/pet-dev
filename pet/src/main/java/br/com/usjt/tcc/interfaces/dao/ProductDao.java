@@ -13,4 +13,5 @@ public interface ProductDao {
 	public List<Product> lista();
 
 	public Product busca(Long id);
+
 }

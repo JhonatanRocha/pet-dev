@@ -82,6 +82,9 @@ public class ProductServiceController {
 		Type type = typeDao.busca(productVO.getType());
 		product.setType(type);
 
+		product.setLinkAnuncio(productVO.getLinkAnuncio());
+		product.setLinkPhoto(productVO.getLinkPhoto());
+		
 		return product;
 	}
 
