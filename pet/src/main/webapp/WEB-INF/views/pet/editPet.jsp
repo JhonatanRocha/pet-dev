@@ -5,7 +5,7 @@
 <html>
 <head>
 <c:import url="../main/main.jsp" />
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Editar Animal</title>
 </head>
 <body>

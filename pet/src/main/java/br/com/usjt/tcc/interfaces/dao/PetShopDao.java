@@ -15,4 +15,6 @@ public interface PetShopDao {
 	public PetShop busca(Long id);
 
 	public PetShop buscaPeloDocument(String document);
+	
+	public PetShop buscaUserId(Long id);
 }

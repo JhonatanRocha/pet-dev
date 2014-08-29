@@ -15,4 +15,6 @@ public interface NGODao {
 	public NGO busca(Long id);
 
 	public NGO buscaPeloDocument(String document);
+	
+	public NGO buscaPeloADM(Long id);
 }

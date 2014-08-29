@@ -6,6 +6,8 @@
 <head>
 <c:import url="../main/main.jsp" />
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <script type="text/javascript" src="${pageContext.servletContext.contextPath}/res/js/jquery-ui.js" ></script>
+  <link rel="stylesheet" href="${pageContext.servletContext.contextPath}/res/css/jquery-ui.css">
 <title>Login</title>
 </head>
 <body>
@@ -61,11 +63,21 @@
 			<div class="col-xs-4 col-xs-offset-2">
 			
 			<c:if test="${erroLogin}">
-			   <p style="font-size:17px; color: red;">Usuário e/ou senha inválida !!!</p>
+			   <div id="dialog-message" title="Erro ao logar">
+				  <br><p>
+				    <span class="ui-icon ui-icon-circle-check" style="float:left; margin:0 7px 50px 0;"></span>
+					    Usuário e/ou senha incorretos.
+				  </p>
+			</div>
 			</c:if>
 			
 			<c:if test="${erroSistema}">
-			   <p style="font-size:17px; color: red;">Sistema temporáriamente indisponivel !!!</p>
+			   <div id="dialog-message" title="Erro Sistema">
+				  <br><p>
+				    <span class="ui-icon ui-icon-circle-check" style="float:left; margin:0 7px 50px 0;"></span>
+					   Sistema indisponível no momento tente mais tarde.
+				  </p>
+				</div>
 			</c:if>
 			
 				<form action="novoUsuario" method="post">
@@ -110,5 +122,19 @@
 		</div>
 
 	</div>
+
+	 <script>
+	  $(function() {
+	    $( "#dialog-message" ).dialog({
+	      modal: true,
+	      buttons: {
+	        Ok: function() {
+	          $( this ).dialog( "close" );
+	        }
+	      }
+	    });
+	  });
+	  </script>
+	  
 </body>
 </html>

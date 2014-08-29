@@ -1,4 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+<%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="ISO-8859-1"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%>
@@ -6,7 +6,7 @@
 <html>
 <head>
 <c:import url="../main/main.jsp" />
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Página Inicial</title>
 <link rel="stylesheet" type="text/css" href="${pageContext.servletContext.contextPath}/res/css/jcarousel.responsive.css">
 <script type="text/javascript" src="${pageContext.servletContext.contextPath}/res/js/jquery.jcarousel.min.js" ></script>

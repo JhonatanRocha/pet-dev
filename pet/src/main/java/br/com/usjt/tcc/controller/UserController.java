@@ -55,8 +55,7 @@ public class UserController {
 	}
 	
 	@RequestMapping("editarUsuario")
-	public String editUser() {
-		
+	public String editUser(HttpSession session) {
 		return "/user/editUser";
 	}
 	

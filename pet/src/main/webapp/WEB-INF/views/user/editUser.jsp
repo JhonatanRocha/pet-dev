@@ -138,58 +138,45 @@
 					</div>
 				</div>
 
-				<div class="row">
-					<div class="col-md-2">
-						<label> <input name="radioGroup" id="isOwner"
-							value="option1" checked="checked" type="radio"> Dono de
-							animal
-						</label>
-					</div>
-					<div class="col-md-1">
-						<label> <input name="radioGroup" id="isOfNGO"
-							value="option2" type="radio"> ONG
-						</label>
-					</div>
-					<div class="col-md-2">
-						<label> <input name="radioGroup" id="isOfPetShop"
-							value="option3" type="radio"> Pet Shop
-						</label>
-					</div>
-				</div>
-				<br />
 			</fieldset>
 
-			<fieldset id="company" class="companyHidden" style="display: none;">
-
-				<legend>Dados da Empresa</legend>
-
-				<div class="row">
-					<div class="col-md-6 col-sm-12">
-						<div class="form-group">
-							<label for="company.name">Nome/Razão Social</label> <input
-								type="text" class="form-control" id="company.name"
-								name="company.name">
+			
+			<c:if test="${(loggedUser.isOfPetShop) || (loggedUser.isOfNGO)}">
+				<fieldset id="company" class="companyHidden" style="display: block;">
+	
+					<legend>Dados da Empresa</legend>
+	
+					<div class="row">
+						<div class="col-md-6 col-sm-12">
+							<div class="form-group">
+								<label for="company.name">Nome/Razão Social</label> <input
+									type="text" class="form-control" id="company.name"
+									value="${loggedPetShop.name}"
+									name="company.name">
+							</div>
 						</div>
 					</div>
-				</div>
-
-				<div class="row">
-					<div class="col-md-5 col-sm-12">
-						<div class="form-group">
-							<label for="cnpj">CNPJ</label> <input type="text"
-								class="form-control" id="cnpj" name="company.cnpj">
+	
+					<div class="row">
+						<div class="col-md-5 col-sm-12">
+							<div class="form-group">
+								<label for="cnpj">CNPJ</label> <input type="text"
+									class="form-control" id="cnpj" name="company.cnpj"
+									value="${loggedPetShop.cnpj}">
+							</div>
+						</div>
+	
+						<div class="col-md-5 col-sm-12">
+							<div class="form-group">
+								<label for="site">Site</label> <input type="text"
+									class="form-control" id="company.site" name="company.site"
+									value="${loggedPetShop.site}">
+							</div>
 						</div>
 					</div>
-
-					<div class="col-md-5 col-sm-12">
-						<div class="form-group">
-							<label for="site">Site</label> <input type="text"
-								class="form-control" id="company.site" name="company.site">
-						</div>
-					</div>
-				</div>
-
-			</fieldset>
+	
+				</fieldset>
+			</c:if>
 			
 			<div class="row" id="Cadastrar">
 				<div class="row">

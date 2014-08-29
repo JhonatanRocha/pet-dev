@@ -7,7 +7,7 @@ jQuery(function($){
 		$("#cnpj").mask("99.999.999/9999-99");
 	});
 
-//Responsï¿½vel por realizar a busca do CEP digitado e popular os demais campos de endereï¿½o
+//Responsável por realizar a busca do CEP digitado e popular os demais campos de endereï¿½o
 $(function(){
 
 	    /**

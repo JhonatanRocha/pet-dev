@@ -49,4 +49,15 @@ public class JpaPetShopDao implements PetShopDao {
 		PetShop petShop = query.getSingleResult();
 		return petShop;
 	}
+
+	@Override
+	public PetShop buscaUserId(Long id) {
+		TypedQuery<PetShop> query = entityManager.createQuery(
+				"select p from PetShop p where p.administrator.id=:pId",
+				PetShop.class);
+
+		query.setParameter("pId", id);
+		PetShop petShop = query.getSingleResult();
+		return petShop;
+	}
 }

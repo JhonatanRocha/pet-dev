@@ -48,4 +48,13 @@ public class JpaNGODao implements NGODao {
 		NGO ngo = query.getSingleResult();
 		return ngo;
 	}
+	
+	public NGO buscaPeloADM(Long id) {
+		TypedQuery<NGO> query = entityManager.createQuery(
+				"select n from NGO n where n.administrator_id=:pId", NGO.class);
+
+		query.setParameter("pId", id);
+		NGO ngo = query.getSingleResult();
+		return ngo;
+	}
 }
