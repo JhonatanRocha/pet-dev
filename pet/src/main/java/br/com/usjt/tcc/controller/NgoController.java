@@ -40,7 +40,7 @@ public class NgoController {
 			user.setCellphone(user.getCellphone().replaceAll("\\D", ""));  
 			user.setPhone(user.getPhone().replaceAll("\\D", ""));
 			ngo.setName(registerNest.getCompany().getName());
-			ngo.setCnpj(registerNest.getCompany().getCnpj());
+			ngo.setCnpj(registerNest.getCompany().getCnpj().replace(".", "").replace("/", "").replace("-", "").trim());
 			ngo.setSite(registerNest.getCompany().getSite());
 			user.setIsOfNGO(true);
 			ngo.setAdministrator(registerNest.getUser());

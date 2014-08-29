@@ -43,7 +43,7 @@ public class PetShopController {
 			user.setIsOfPetShop(true);
 			
 			petShop.setName(registerNest.getCompany().getName());
-			petShop.setCnpj(registerNest.getCompany().getCnpj());
+			petShop.setCnpj(registerNest.getCompany().getCnpj().replace(".", "").replace("/", "").replace("-", "").trim());
 			petShop.setSite(registerNest.getCompany().getSite());
 			petShop.setAdministrator(registerNest.getUser());
 			

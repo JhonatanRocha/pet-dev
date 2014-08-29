@@ -27,7 +27,7 @@ public class ProductServerTeste {
 
 	private void sendPost() throws Exception {
 
-		String url = "http://localhost:8080/pet/products/36272923";
+		String url = "http://localhost:8080/pet/products/12345678912345";
 
 		HttpClient client = new DefaultHttpClient();
 		HttpPost post = new HttpPost(url);
