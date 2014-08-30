@@ -35,6 +35,8 @@ public class Product {
 	private String linkPhoto;
 	private String linkAnuncio;
 	
+	private Boolean isActive;
+	
 	public Long getId() {
 		return id;
 	}
@@ -121,6 +123,14 @@ public class Product {
 
 	public void setLinkAnuncio(String linkAnuncio) {
 		this.linkAnuncio = linkAnuncio;
+	}
+
+	public Boolean getIsActive() {
+		return isActive;
+	}
+
+	public void setIsActive(Boolean isActive) {
+		this.isActive = isActive;
 	}
 
 }
