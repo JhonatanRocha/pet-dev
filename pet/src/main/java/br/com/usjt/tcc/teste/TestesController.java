@@ -30,6 +30,9 @@ public class TestesController {
 
 	@Autowired
 	private PetShopDaoTeste petShopDaoTeste;
+	
+	@Autowired
+	private RuleDaoTeste ruleDaoTeste;
 
 	@RequestMapping("testUserDao")
 	public void testUserDao() {
@@ -71,6 +74,11 @@ public class TestesController {
 		productDaoTeste.test();
 	}
 
+	@RequestMapping("testRuleDao")
+	public void testRuleDao() {
+		ruleDaoTeste.test();
+	}
+	
 	@RequestMapping("testAllDaos")
 	public void testAllDaos() {
 		colorDaoTeste.test();
@@ -81,6 +89,7 @@ public class TestesController {
 		productDaoTeste.test();
 		petShopDaoTeste.test();
 		ngoDaoTeste.test();
+		ruleDaoTeste.test();
 	}
 
 }
