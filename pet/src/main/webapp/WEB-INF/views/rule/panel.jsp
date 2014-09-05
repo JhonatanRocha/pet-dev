@@ -56,7 +56,7 @@
 											${ruleItem.product.size}</li>
 										<li class="list-group-item"><label>Raça: </label>	
 											${ruleItem.product.race.description}</li>
-										<li class="list-group-item"><label>Stage: </label>
+										<li class="list-group-item"><label>Idade: </label>
 											${ruleItem.product.stage}</li>
 										<li class="list-group-item"><label>Pontos: </label>
 											${ruleItem.product.score}</li>

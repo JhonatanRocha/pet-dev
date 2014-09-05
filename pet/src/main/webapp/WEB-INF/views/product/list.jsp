@@ -102,7 +102,7 @@
 						      </div>
 						    
 						           
-						        <form action="updatePet" method="post" enctype="multipart/form-data">
+						        <form action="updateProduct" method="post" enctype="multipart/form-data">
 	
 									<input type="hidden" name="id" value="${productItem.id}">
 																	        

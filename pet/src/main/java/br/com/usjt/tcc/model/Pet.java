@@ -38,6 +38,9 @@ public class Pet {
 	private Boolean isNeutered;
 	private Boolean isDeficient;
 	
+	private String stage;
+	private Boolean isActive;
+	
 	@Lob
 	@Basic(fetch=FetchType.LAZY) 
 	private byte[] photo;
@@ -141,6 +144,22 @@ public class Pet {
 
 	public void setUser(User user) {
 		this.user = user;
+	}
+
+	public String getStage() {
+		return stage;
+	}
+
+	public void setStage(String stage) {
+		this.stage = stage;
+	}
+
+	public Boolean getIsActive() {
+		return isActive;
+	}
+
+	public void setIsActive(Boolean isActive) {
+		this.isActive = isActive;
 	}
 
 }

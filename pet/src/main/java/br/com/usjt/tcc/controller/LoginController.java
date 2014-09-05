@@ -72,6 +72,12 @@ public class LoginController {
         return "/user/login";
 	}
 	
+	@RequestMapping(value ="/home")
+	public String home() {
+		
+        return "/menu/initPage";
+	}
+	
 	private String validateActivated(HttpSession session, User user){
 		if(user.getIsActivated()){
 			session.setAttribute("loggedUser", user);

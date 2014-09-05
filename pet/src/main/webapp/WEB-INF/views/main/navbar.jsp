@@ -1,7 +1,7 @@
 <nav class="navbar navbar-inverse" role="navigation">
 	<div class="container">
 		<div class="navbar-header">
-			<a class="navbar-brand" href="${pageContext.servletContext.contextPath}"> <img
+			<a class="navbar-brand" href="home"> <img
 				class="logo-image" src="../pet/res/images/4OurLives-Logo.png"> 
 			</a>
 		</div>

@@ -83,6 +83,15 @@
 				    </c:forEach>
 				</select>
 			</div>
+			
+			<div class="form-group col-md-2">
+				<label for="stage">Idade</label> 
+				<select name="stage" class="form-control">
+					<option>Todos</option>
+					<option>Filhote</option>
+					<option>Adulto</option>
+				</select>
+			</div>
 
 			<div class="checkbox col-md-2">
 				<label> 

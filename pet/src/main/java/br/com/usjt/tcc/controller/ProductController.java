@@ -105,7 +105,7 @@ public class ProductController {
 		return "redirect:/products";
 	}
 	
-	@RequestMapping("updatePet")
+	@RequestMapping("updateProduct")
 	public String updateProduct(Product product , HttpSession session) {
 		
 		User loggedUser = (User) session.getAttribute("loggedUser");

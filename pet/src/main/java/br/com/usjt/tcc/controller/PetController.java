@@ -67,6 +67,15 @@ public class PetController {
 		List<Pet> pets = loggedUser.getPets();
 		model.addAttribute("pets", pets);
 		
+		List<Type> types = typeDao.lista();
+		model.addAttribute("types", types);
+		
+		List<Race> races = raceDao.lista();
+		model.addAttribute("races", races);
+		
+		List<Color> colors = colorDao.lista();
+		model.addAttribute("colors", colors);
+		
 		return "/pet/list";
 	}
 	
@@ -85,6 +94,7 @@ public class PetController {
         pet.setType(typeDao.busca(pet.getType().getId()));
         pet.setRace(raceDao.busca(pet.getRace().getId()));
         pet.setColor(colorDao.busca(pet.getColor().getId()));
+        pet.setIsActive(true);
         
         User loggedUser = (User)session.getAttribute("loggedUser");
         pet.setUser(loggedUser);
@@ -92,15 +102,28 @@ public class PetController {
 		petDao.adiciona(pet);
 		loggedUser.getPets().add(pet);
 		
-		return "/menu/initPage";
+		return "redirect:/listPets";
 	}
 	
-	@RequestMapping("editPet")
-	public String editPet(Pet pet, HttpSession session) {
+	@RequestMapping("updatePet")
+	public String editPet(Pet pet, HttpSession session,HttpServletRequest request) {
 		
-		System.out.println("TesteEdiPet");
+		MultipartHttpServletRequest multipartRequest = (MultipartHttpServletRequest) request;
+        MultipartFile file =  multipartRequest.getFile("file");
+        try {
+			pet.setFoto(file.getBytes());
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
 		
-		return "/pet/editPet";
+		User user = (User)session.getAttribute("loggedUser");
+		pet.setUser(user);
+		
+		petDao.atualiza(pet);
+		
+		session.setAttribute("loggedUser", userDao.busca(user.getId()));
+		
+		return "redirect:/listPets";
 	}
 	
 	@RequestMapping("deletePet")
