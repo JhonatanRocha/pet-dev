@@ -5,6 +5,7 @@ import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
@@ -29,7 +30,7 @@ public class LoginController {
 	NGODao ngoDao;
 	
 	@RequestMapping(value = "/efetuaLogin", method = { RequestMethod.POST })
-	public String efetuaLogin(User user, HttpSession session) {
+	public String efetuaLogin(User user, HttpSession session, Model model) {
 		String retorno = "redirect:";
 		try {
 			user.setPassword(HashHelper.sha256(user.getPassword()));
@@ -38,6 +39,10 @@ public class LoginController {
 				user = userDao.buscaPeloEmail(user.getEmail());
 				retorno = validateActivated(session, user);
 				setTypeUser(session, user);
+				
+				User loggedUser = (User)session.getAttribute("loggedUser");
+				model.addAttribute("loggedUser", loggedUser);
+				
 			}else{
 				session.setAttribute("erroLogin", true);
 				session.setAttribute("erroSistema", false);
@@ -46,6 +51,7 @@ public class LoginController {
 			session.setAttribute("erroSistema", true);
 			e.printStackTrace();
 		}
+		
 		return retorno;
 	}
 	

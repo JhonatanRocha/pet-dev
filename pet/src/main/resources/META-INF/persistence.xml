@@ -17,6 +17,7 @@ http://java.sun.com/xml/ns/persistence/persistence_2_0.xsd"
 		<class>br.com.usjt.tcc.model.PetShop</class>
 		<class>br.com.usjt.tcc.model.Product</class>
 		<class>br.com.usjt.tcc.model.Rule</class>
+		<class>br.com.usjt.tcc.model.Announcement</class>
 		<properties>
 			<property name="hibernate.dialect" value="org.hibernate.dialect.MySQL5InnoDBDialect" />
 			<property name="hibernate.hbm2ddl.auto" value="update" />

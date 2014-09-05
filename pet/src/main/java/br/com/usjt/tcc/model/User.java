@@ -49,6 +49,9 @@ public class User {
 	@OneToMany(cascade=CascadeType.ALL, mappedBy="user", fetch = FetchType.EAGER)
 	private List<Pet> pets = new ArrayList<Pet>();
 	
+	@OneToMany(cascade=CascadeType.ALL, mappedBy="user", fetch = FetchType.EAGER)
+	private List<Announcement> announcement = new ArrayList<Announcement>();
+	
 //	@OneToMany(mappedBy = "user", cascade=CascadeType.ALL)
 //	private List<Pet> pets;
 
@@ -174,5 +177,13 @@ public class User {
 
 	public void setScore(int score) {
 		this.score = score;
+	}
+
+	public List<Announcement> getAnnouncement() {
+		return announcement;
+	}
+
+	public void setAnnouncement(List<Announcement> announcement) {
+		this.announcement = announcement;
 	}
 }
