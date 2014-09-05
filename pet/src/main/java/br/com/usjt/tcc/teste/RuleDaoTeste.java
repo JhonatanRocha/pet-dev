@@ -9,7 +9,6 @@ import br.com.usjt.tcc.interfaces.dao.ProductDao;
 import br.com.usjt.tcc.interfaces.dao.RaceDao;
 import br.com.usjt.tcc.interfaces.dao.RuleDao;
 import br.com.usjt.tcc.interfaces.dao.TypeDao;
-import br.com.usjt.tcc.model.Product;
 import br.com.usjt.tcc.model.Rule;
 
 @Component
@@ -29,20 +28,20 @@ public class RuleDaoTeste {
 
 		Rule rule = new Rule();
 		rule.setName("Regra Genérica");
-		rule.setRace(raceDao.busca((long) 1));
-		rule.setScore(900);
-		rule.setSize("grande");
+		rule.setRace(false);
+		rule.setScore(false);
+		rule.setSize(false);
 		rule.setProduct(productDao.busca((long) 1));
-		rule.setStage("adulto");
-		rule.setType(typeDao.busca((long) 1));
+		rule.setStage(false);
+		rule.setType(false);
 		
 		ruleDao.adiciona(rule);
 		
-		Rule ruleAux = ruleDao.busca(new Long(11));
+		Rule ruleAux = ruleDao.busca(new Long(1));
 		System.out.println(ruleAux.getName());
 		
 		ruleAux.setName("Deu a louca no Gerente!");
-		ruleAux.setSize("Pequeno");
+		ruleAux.setSize(false);
 		ruleDao.atualiza(ruleAux);
 		
 		List<Rule> rules = ruleDao.lista();

@@ -13,10 +13,12 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import br.com.usjt.tcc.interfaces.dao.PetShopDao;
 import br.com.usjt.tcc.interfaces.dao.ProductDao;
 import br.com.usjt.tcc.interfaces.dao.RaceDao;
+import br.com.usjt.tcc.interfaces.dao.RuleDao;
 import br.com.usjt.tcc.interfaces.dao.TypeDao;
 import br.com.usjt.tcc.model.PetShop;
 import br.com.usjt.tcc.model.Product;
 import br.com.usjt.tcc.model.Race;
+import br.com.usjt.tcc.model.Rule;
 import br.com.usjt.tcc.model.Type;
 import br.com.usjt.tcc.model.User;
 
@@ -34,6 +36,9 @@ public class ProductController {
 	
 	@Autowired
 	RaceDao raceDao;
+	
+	@Autowired
+	RuleDao ruleDao;
 	
 	
 	@RequestMapping(value = "products", method = RequestMethod.GET)
@@ -86,6 +91,16 @@ public class ProductController {
 		}
 		
 		productDao.adiciona(product);
+		
+		Rule rule = new Rule();
+		rule.setProduct(product);
+		rule.setRace(false);
+		rule.setScore(false);
+		rule.setSize(false);
+		rule.setStage(false);
+		rule.setType(false);
+		
+		ruleDao.adiciona(rule);
 		
 		return "redirect:/products";
 	}

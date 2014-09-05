@@ -15,63 +15,78 @@ public class Rule {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	private String name;
-	@OneToOne
-	private Type type;
-	@OneToOne
-	private Race race;
-	
-	private String stage;
-	private String size;
-	private int score;
+
+	private Boolean type;
+	private Boolean race;
+	private Boolean stage;
+	private Boolean size;
+	private Boolean score;
+
 	@OneToOne
 	private Product product;
-	
+
 	public Long getId() {
 		return id;
 	}
+
 	public void setId(Long id) {
 		this.id = id;
 	}
+
 	public String getName() {
 		return name;
 	}
+
 	public void setName(String name) {
 		this.name = name;
 	}
-	public Type getType() {
-		return type;
-	}
-	public void setType(Type type) {
-		this.type = type;
-	}
-	public Race getRace() {
+
+	public Boolean getRace() {
 		return race;
 	}
-	public void setRace(Race race) {
+
+	public void setRace(Boolean race) {
 		this.race = race;
 	}
-	public String getStage() {
+
+	public Boolean getStage() {
 		return stage;
 	}
-	public void setStage(String stage) {
+
+	public void setStage(Boolean stage) {
 		this.stage = stage;
 	}
-	public String getSize() {
+
+	public Boolean getSize() {
 		return size;
 	}
-	public void setSize(String size) {
+
+	public void setSize(Boolean size) {
 		this.size = size;
 	}
-	public int getScore() {
+
+	public Boolean getScore() {
 		return score;
 	}
-	public void setScore(int score) {
+
+	public void setScore(Boolean score) {
 		this.score = score;
 	}
+
 	public Product getProduct() {
 		return product;
 	}
+
 	public void setProduct(Product product) {
 		this.product = product;
 	}
+
+	public Boolean getType() {
+		return type;
+	}
+
+	public void setType(Boolean type) {
+		this.type = type;
+	}
+
 }

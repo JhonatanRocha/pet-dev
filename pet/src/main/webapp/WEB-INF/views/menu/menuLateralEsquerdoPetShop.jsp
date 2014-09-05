@@ -21,6 +21,7 @@
 		<a href="editarUsuario" class="list-group-item">Alterar Meus dados</a>
 		<a href="products" class="list-group-item">Meus Produtos</a>
 		<a href="newProducts" class="list-group-item">Adicionar Produto</a>
+		<a href="regras" class="list-group-item">Minhas Regras</a>
 		<!-- 
 		<a href="#" class="list-group-item">Alterar Produto</a>
 		<a href="#"	class="list-group-item">Excluir Produto</a> 
