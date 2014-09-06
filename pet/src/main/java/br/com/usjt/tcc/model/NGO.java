@@ -1,8 +1,11 @@
 package br.com.usjt.tcc.model;
 
+import java.util.ArrayList;
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
@@ -10,9 +13,9 @@ import javax.persistence.Table;
 @Table(name = "ngo")
 public class NGO extends Company {
 
-	@OneToMany
-	private List<Pet> pets;
-
+	@OneToMany(cascade=CascadeType.ALL, mappedBy="ngo", fetch = FetchType.EAGER)
+	private List<Pet> pets = new ArrayList<Pet>();
+	
 	public List<Pet> getPets() {
 		return pets;
 	}

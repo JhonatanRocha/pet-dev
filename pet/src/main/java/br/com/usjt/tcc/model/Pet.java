@@ -37,18 +37,21 @@ public class Pet {
 
 	private Boolean isNeutered;
 	private Boolean isDeficient;
-	
+
 	private String stage;
 	private Boolean isActive;
-	
+
 	@Lob
-	@Basic(fetch=FetchType.LAZY) 
+	@Basic(fetch = FetchType.LAZY)
 	private byte[] photo;
 
-	
-	@JoinColumn(name="user_id", referencedColumnName = "id")
+	@JoinColumn(name = "user_id", referencedColumnName = "id")
 	@ManyToOne
 	private User user;
+
+	@JoinColumn(name = "ngo_id", referencedColumnName = "id")
+	@ManyToOne
+	private NGO ngo;
 
 	public Long getId() {
 		return id;
@@ -160,6 +163,14 @@ public class Pet {
 
 	public void setIsActive(Boolean isActive) {
 		this.isActive = isActive;
+	}
+
+	public NGO getNgo() {
+		return ngo;
+	}
+
+	public void setNgo(NGO ngo) {
+		this.ngo = ngo;
 	}
 
 }

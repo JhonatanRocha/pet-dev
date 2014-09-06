@@ -3,7 +3,7 @@
 
 <div class="well" style="width: 250px;">
 	<div class="list-group">
-		<li class="sidebar-brand">${loggedUser.name }</li>
+		<h4 class="sidebar-brand">${loggedUser.name }</h4>
 			<div class="text-center">
 				<c:choose>
 					<c:when test="${fn:length(loggedUser.foto) == 0}">
@@ -17,11 +17,10 @@
 				</c:choose>
 				<h4 class="sidebar-brand">Pontos: ${loggedUser.score }</h4>
 			</div>
-			
-		<!-- <a href="editarUsuario" class="list-group-item">Alterar Meus dados</a>
-		<a href="#" class="list-group-item">Adicionar Produto</a>
-		<a href="novoAnimal" class="list-group-item">Alterar Produto</a>
-		<a href="#"	class="list-group-item">Excluir Produto</a> 
-		<a href="editarUsuario" class="list-group-item">XXXXX</a> -->
+		
+		<a href="listPets" class="list-group-item">Meus animais</a>
+		<a href="novoAnimal" class="list-group-item"> Cadastrar Animal </a>
+		<a href="editarUsuario" class="list-group-item">Alterar meus dados</a>
+		<a href="deactivateUser" class="list-group-item">Desativar conta</a>
 	</div>
 </div>
