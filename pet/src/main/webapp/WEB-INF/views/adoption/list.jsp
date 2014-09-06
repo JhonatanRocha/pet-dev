@@ -161,13 +161,22 @@
 												<legend>Envie um email sobre:</legend>
 											</fieldset>
 
-											<div class="well" style="max-width: 200px; margin: 0 auto 10px;">
-												<button type="button" class="btn btn-success">Sobre
-													Adoção</button>
-												<button type="button" class="btn btn-success">Sobre
-													Apadrinhamento</button>
-												<button type="button" class="btn btn-primary">Sobre
-													Doações</button>
+											<div class="well"
+												style="max-width: 200px; margin: 0 auto 10px;">
+
+												<a class="btn btn-success"
+													href="mailto:${ngoItem.administrator.email}?subject=Adoção">
+													<span class="glyphicon glyphicon-envelope"></span> Sobre
+													Adoção
+												</a> <a class="btn btn-success"
+													href="mailto:${ngoItem.administrator.email}?subject=Apadrinhamento">
+													<span class="glyphicon glyphicon-envelope"></span> Sobre
+													Apadrinhamento
+												</a> <a class="btn btn-success"
+													href="mailto:${ngoItem.administrator.email}?subject=Doações">
+													<span class="glyphicon glyphicon-envelope"></span> Sobre
+													Doações
+												</a>
 											</div>
 
 
