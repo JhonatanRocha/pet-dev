@@ -40,33 +40,35 @@ public class User {
 	@Column(columnDefinition = "VARCHAR(20)")
 	private String cellphone;
 
-	@DateTimeFormat(pattern="yyyy-MM-dd")
+	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	@Column
 	@Temporal(TemporalType.DATE)
 	private Calendar birth;
 
-	
-	@OneToMany(cascade=CascadeType.ALL, mappedBy="user", fetch = FetchType.EAGER)
+	@OneToMany(cascade = CascadeType.ALL, mappedBy = "user", fetch = FetchType.EAGER)
 	private List<Pet> pets = new ArrayList<Pet>();
-	
-	@OneToMany(cascade=CascadeType.ALL, mappedBy="user", fetch = FetchType.EAGER)
+
+	@OneToMany(cascade = CascadeType.ALL, mappedBy = "user", fetch = FetchType.EAGER)
 	private List<Announcement> announcement = new ArrayList<Announcement>();
-	
-//	@OneToMany(mappedBy = "user", cascade=CascadeType.ALL)
-//	private List<Pet> pets;
+
+	// @OneToMany(mappedBy = "user", cascade=CascadeType.ALL)
+	// private List<Pet> pets;
 
 	private int score;
-	
-	@OneToOne(cascade = {CascadeType.ALL})
+
+	@OneToOne(cascade = { CascadeType.ALL })
 	private Address address;
 	private Boolean isOfNGO = false;
 	private Boolean isOfPetShop = false;
 	private Boolean isActivated = true;
 
 	@Lob
-	@Basic(fetch=FetchType.LAZY) 
+	@Basic(fetch = FetchType.LAZY)
 	private byte[] photo;
-	
+
+	@OneToMany(cascade = CascadeType.ALL, mappedBy = "user", fetch = FetchType.EAGER)
+	private List<Voucher> vouchers = new ArrayList<Voucher>();
+
 	public byte[] getFoto() {
 		return photo;
 	}
@@ -185,5 +187,13 @@ public class User {
 
 	public void setAnnouncement(List<Announcement> announcement) {
 		this.announcement = announcement;
+	}
+
+	public List<Voucher> getVouchers() {
+		return vouchers;
+	}
+
+	public void setVouchers(List<Voucher> vouchers) {
+		this.vouchers = vouchers;
 	}
 }

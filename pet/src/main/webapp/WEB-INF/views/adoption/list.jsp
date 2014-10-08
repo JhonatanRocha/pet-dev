@@ -117,7 +117,7 @@
 							</div>
 
 						</div>
-					</c:forEach>
+				
 
 
 					<c:set var="toedit" value="${ngoItem}" scope="request"></c:set>
@@ -187,9 +187,17 @@
 											<h5>${ngoItem.administrator.address.street}-
 												${ngoItem.administrator.address.city} -
 												${ngoItem.administrator.address.state}</h5>
-
 										</div>
 
+										<div class="col-md-6">
+											<!-- <a class="btn btn-warning btn-lg" href="newVoucher" target="_blank">GERAR VOUCHER</a> -->
+											<a class="btn btn-warning btn-lg" href="newVoucher/${petItem.id}" onclick="window.open('newVoucher/${petItem.id}', 'newwindow', 'width=800, height=500'); return false;"> GERAR VOUCHER</a>
+											<!--<form action="newVoucher">
+												<input type="hidden" name="id" value="${petItem.id}">
+												<button class="btn btn-warning btn-lg" type="submit">GERAR VOUCHER</button>
+											</form>-->
+											
+										</div>
 									</div>
 
 								</div>
@@ -200,6 +208,7 @@
 					</div>
 
 				</c:forEach>
+					</c:forEach>
 
 			</div>
 			<jsp:include page="../anuncios/anuncios.jsp" />
