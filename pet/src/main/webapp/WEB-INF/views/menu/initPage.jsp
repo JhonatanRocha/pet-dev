@@ -24,6 +24,9 @@
 				    </c:when>
 				    <c:when test="${loggedUser.isOfNGO}">
 				         <jsp:include page="../menu/menuLateralEsquerdoNGO.jsp" />
+				         <jsp:include page="../alert/adoption.jsp" />
+				         <jsp:include page="../alert/apadrinhamento.jsp" />
+				         <jsp:include page="../alert/donate.jsp" />
 				    </c:when>
 				    <c:otherwise>
 				        <jsp:include page="../menu/menuLateralEsquerdo.jsp" />
