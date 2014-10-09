@@ -34,10 +34,10 @@ public class AdoptionController {
 
 	@Autowired
 	AlertDao alertDao;
-	
+
 	@Autowired
 	UserDao userDao;
-	
+
 	@RequestMapping("petsForAdoption")
 	public String listPet(Model model, HttpSession session) {
 
@@ -61,71 +61,83 @@ public class AdoptionController {
 			User user = voucher.getUser();
 			pet.setUser(user);
 			pet.setNgo(null);
-			
-			petDao.atualiza(pet);
-			
-			user.setScore(user.getScore()+500);
-			userDao.atualiza(user);
 
+			petDao.atualiza(pet);
+
+			user.setScore(user.getScore() + 500);
+			userDao.atualiza(user);
+			
+			voucher.setUsado(5);
+			voucherDao.atualiza(voucher);
+		}{
+			voucher.setUsado(voucher.getUsado()+1);
+			voucherDao.atualiza(voucher);
 		}
 
 		Alert alert = alertDao.busca(id_alert);
 		alert.setIsActive(false);
 		alertDao.atualiza(alert);
-		
-		 NGO ngo = ngoDao.busca(voucher.getNgo().getId());
-		 session.setAttribute("loggedNGO", ngo);
-		
+
+		NGO ngo = ngoDao.busca(voucher.getNgo().getId());
+		session.setAttribute("loggedNGO", ngo);
 
 		return "/menu/initPage";
 	}
-	
+
 	@RequestMapping("apadrinhaPet")
 	public String apadrinhaPet(Model model, HttpSession session,
 			Long id_voucher, Long id_alert, Boolean opcao) {
 
 		Voucher voucher = voucherDao.busca(id_voucher);
-		
+
 		if (opcao) {
-			
+
 			User user = voucher.getUser();
-			user.setScore(user.getScore()+400);
+			user.setScore(user.getScore() + 400);
 			userDao.atualiza(user);
 
+			voucher.setUsado(5);
+			voucherDao.atualiza(voucher);
+		}{
+			voucher.setUsado(voucher.getUsado()+1);
+			voucherDao.atualiza(voucher);
 		}
 
 		Alert alert = alertDao.busca(id_alert);
 		alert.setIsActive(false);
 		alertDao.atualiza(alert);
-		
-		 NGO ngo = ngoDao.busca(voucher.getNgo().getId());
-		 session.setAttribute("loggedNGO", ngo);
-		
+
+		NGO ngo = ngoDao.busca(voucher.getNgo().getId());
+		session.setAttribute("loggedNGO", ngo);
 
 		return "/menu/initPage";
 	}
-	
+
 	@RequestMapping("donate")
-	public String donate(Model model, HttpSession session,
-			Long id_voucher, Long id_alert, Boolean opcao) {
+	public String donate(Model model, HttpSession session, Long id_voucher,
+			Long id_alert, Boolean opcao) {
 
 		Voucher voucher = voucherDao.busca(id_voucher);
-		
+
 		if (opcao) {
-			
+
 			User user = voucher.getUser();
-			user.setScore(user.getScore()+200);
+			user.setScore(user.getScore() + 200);
 			userDao.atualiza(user);
 
+			voucher.setUsado(5);
+			voucherDao.atualiza(voucher);
+		}{
+			voucher.setUsado(voucher.getUsado()+1);
+			voucherDao.atualiza(voucher);
 		}
-
+		
 		Alert alert = alertDao.busca(id_alert);
 		alert.setIsActive(false);
 		alertDao.atualiza(alert);
-		
-		 NGO ngo = ngoDao.busca(voucher.getNgo().getId());
-		 session.setAttribute("loggedNGO", ngo);
-		
+
+		NGO ngo = ngoDao.busca(voucher.getNgo().getId());
+		session.setAttribute("loggedNGO", ngo);
 
 		return "/menu/initPage";
 	}

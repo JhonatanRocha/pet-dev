@@ -14,7 +14,7 @@
 						<p>
 							Alerta de <strong>adoção!</strong> <br>
 							Esse animal: <h4><span class="label label-info"> ${alert.voucher.pet.name} </span> </h4><br>
-							Foi <strong>adotado</strong> algum valor por: <h4><span class="label label-info"> ${alert.voucher.user.name} </span></h4>?
+							Foi <strong>adotado</strong> por: <h4><span class="label label-info"> ${alert.voucher.user.name} </span></h4>?
 							<br><br>
 																				
 							<button data-toggle="modal" data-target="#myModalSim${alert.id}" class="btn btn-success">sim</button>

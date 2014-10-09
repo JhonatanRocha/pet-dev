@@ -33,6 +33,8 @@ public class Voucher {
 
 	private Integer tipo;
 	
+	private Integer usado;
+	
 	@OneToOne
 	private Pet pet;
 
@@ -98,5 +100,13 @@ public class Voucher {
 
 	public void setPet(Pet pet) {
 		this.pet = pet;
+	}
+
+	public Integer getUsado() {
+		return usado;
+	}
+
+	public void setUsado(Integer usado) {
+		this.usado = usado;
 	}
 }

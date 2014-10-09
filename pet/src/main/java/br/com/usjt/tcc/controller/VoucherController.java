@@ -1,6 +1,7 @@
 package br.com.usjt.tcc.controller;
 
 import java.util.Date;
+import java.util.List;
 
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
@@ -68,6 +69,7 @@ public class VoucherController {
 		voucher.setTipo(tipo);
 		voucher.setNgo(ngo);
 		voucher.setPet(pet);
+		voucher.setUsado(1);
 		voucher.setNumber(voucherNumber);
 		voucher.setUser(loggedUser);
 
@@ -84,6 +86,56 @@ public class VoucherController {
 		model.addAttribute("voucher", voucher);
 
 		return "voucher/voucher";
+	}
+
+	@RequestMapping("getVoucherAnimal")
+	public String getVoucherAnimal(Model model, HttpSession session,
+			HttpServletResponse response, Long id) {
+
+		Voucher voucher = voucherDao.busca(id);
+		model.addAttribute("voucher", voucher);
+
+		return "voucher/voucher";
+	}
+
+	@RequestMapping("sendVoucherAnimal")
+	public String sendVoucherAnimal(Model model, HttpSession session,
+			HttpServletResponse response, Long id) {
+
+		Voucher voucher = voucherDao.busca(id);
+
+		voucher.setUsado(voucher.getUsado()+1);
+		voucherDao.atualiza(voucher);
+		
+		Alert alert = new Alert();
+		alert.setIsActive(true);
+		alert.setNgo(voucher.getNgo());
+		alert.setVoucher(voucher);
+		alertDao.adiciona(alert);
+
+		User loggedUser = (User) session.getAttribute("loggedUser");
+		
+		loggedUser = userDao.busca(loggedUser.getId());
+		
+		model.addAttribute("loggedUser", loggedUser);
+
+		List<Voucher> vouchers = loggedUser.getVouchers();
+		model.addAttribute("vouchers", vouchers);
+
+		return "/voucher/list";
+	}
+
+	@RequestMapping("listVouchers")
+	public String listVoucher(Model model, HttpSession session) {
+
+		User loggedUser = (User) session.getAttribute("loggedUser");
+		model.addAttribute("loggedUser", loggedUser);
+
+		List<Voucher> vouchers = loggedUser.getVouchers();
+
+		model.addAttribute("vouchers", vouchers);
+
+		return "/voucher/list";
 	}
 
 	private Long geraVoucherRandomico(Long id) {
