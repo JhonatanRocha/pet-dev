@@ -11,11 +11,13 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import br.com.usjt.tcc.interfaces.dao.AlertDao;
 import br.com.usjt.tcc.interfaces.dao.NGODao;
 import br.com.usjt.tcc.interfaces.dao.PetDao;
 import br.com.usjt.tcc.interfaces.dao.PetShopDao;
 import br.com.usjt.tcc.interfaces.dao.UserDao;
 import br.com.usjt.tcc.interfaces.dao.VoucherDao;
+import br.com.usjt.tcc.model.Alert;
 import br.com.usjt.tcc.model.NGO;
 import br.com.usjt.tcc.model.Pet;
 import br.com.usjt.tcc.model.User;
@@ -38,6 +40,9 @@ public class VoucherController {
 
 	@Autowired
 	PetDao petDao;
+
+	@Autowired
+	AlertDao alertDao;
 
 	@RequestMapping("newVoucher/{id}")
 	public String newVoucher(Model model, HttpServletResponse response,
@@ -68,6 +73,14 @@ public class VoucherController {
 
 		voucherDao.adiciona(voucher);
 
+		voucher = voucherDao.buscaPeloNumber(voucherNumber);
+
+		Alert alert = new Alert();
+		alert.setIsActive(true);
+		alert.setNgo(ngo);
+		alert.setVoucher(voucher);
+		alertDao.adiciona(alert);
+
 		model.addAttribute("voucher", voucher);
 
 		return "voucher/voucher";
@@ -76,10 +89,10 @@ public class VoucherController {
 	private Long geraVoucherRandomico(Long id) {
 		Long i = new Date().getTime();
 
-		Double random = Math.random()*id;
-		
+		Double random = Math.random() * id;
+
 		String vous = ("" + random).replace(".", "").replace(",", "");
-		
+
 		i = i + Long.parseLong(vous);
 
 		return i;

@@ -19,6 +19,9 @@ public class NGO extends Company {
 	@OneToMany(cascade = CascadeType.ALL, mappedBy = "ngo", fetch = FetchType.EAGER)
 	private List<Voucher> vouchers = new ArrayList<Voucher>();
 
+	@OneToMany(cascade = CascadeType.ALL, mappedBy = "ngo", fetch = FetchType.EAGER)
+	private List<Alert> alerts = new ArrayList<Alert>();
+
 	public List<Pet> getPets() {
 		return pets;
 	}
@@ -33,5 +36,13 @@ public class NGO extends Company {
 
 	public void setVouchers(List<Voucher> vouchers) {
 		this.vouchers = vouchers;
+	}
+
+	public List<Alert> getAlerts() {
+		return alerts;
+	}
+
+	public void setAlerts(List<Alert> alerts) {
+		this.alerts = alerts;
 	}
 }

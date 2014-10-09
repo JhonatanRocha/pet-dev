@@ -13,4 +13,6 @@ public interface VoucherDao {
 	public List<Voucher> lista();
 
 	public Voucher busca(Long id);
+	
+	public Voucher buscaPeloNumber(Long number);
 }

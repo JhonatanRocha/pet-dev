@@ -5,6 +5,7 @@ import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
+import javax.persistence.TypedQuery;
 import javax.transaction.Transactional;
 
 import org.springframework.stereotype.Repository;
@@ -37,4 +38,14 @@ public class JpaVoucherDao implements VoucherDao {
 		return entityManager.find(Voucher.class, id);
 	}
 
+	@Override
+	public Voucher buscaPeloNumber(Long number) {
+		TypedQuery<Voucher> query = entityManager
+				.createQuery("select v from Voucher v where v.number=:vNumber",	Voucher.class);
+	
+		query.setParameter("vNumber", number);
+		
+		return  query.getSingleResult();
+	}
+	
 }
