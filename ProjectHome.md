@@ -1,0 +1,1 @@
+Social Hub for Pet Lovers , Ongs and Petshops. They can interact with each other, earn points to reclaim discount in Petshops, search for Pet to adopt, community events and more.
